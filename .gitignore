@@ -1,5 +1,7 @@
 # Partie Back
 back/menv/
+back/config_db.ini
+back/__pycache__/
 
 
 # Parti Front

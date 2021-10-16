@@ -12,6 +12,13 @@
 In menv
  * $ pip install Flask
 
+### config_db.ini
+   * [postgresql]
+   * host=localhost
+   * database=dbname
+   * user=dbuser
+   * password=dbpassword
+
 # react
 
 * $ npm install -g create-react-app
