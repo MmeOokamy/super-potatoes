@@ -12,6 +12,13 @@
 In menv
  * $ pip install Flask
  * $ pip install python-dotenv
+ * $ pip install Flask-SQLAlchemy
+
+
+## Requirements files
+ * $ pip freeze > requirements.txt
+
+
 
 ### config_db.ini
    * [postgresql]

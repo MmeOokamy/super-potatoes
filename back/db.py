@@ -20,6 +20,8 @@ class MyDatabase():
 
     def query(self, query):
         self.cur.execute(query)
+        
+    def commit(self):
         self.conn.commit()
 
     
