@@ -9,10 +9,11 @@ DROP TABLE IF EXISTS status;
 
 CREATE TABLE logs (
     id SERIAL PRIMARY KEY UNIQUE,
-    user_id INTEGER NOT NULL,
+    user_id INTEGER,
+    user_name VARCHAR(100),
     task_id INTEGER,
     item_id INTEGER,
-    action VARCHAR(50),
+    action VARCHAR(50) NOT NULL,
     requete TEXT,
     created TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
 );
@@ -43,7 +44,8 @@ CREATE TABLE users (
     user_name VARCHAR(100) UNIQUE NOT NULL,
     user_password VARCHAR(255) NOT NULL,
     user_email VARCHAR(255) NOT NULL,
-    user_power SMALLINT DEFAULT 1
+    user_power SMALLINT DEFAULT 1,
+    user_token TEXT
 );
 
 CREATE TABLE tasks (

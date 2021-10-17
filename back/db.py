@@ -1,38 +1,35 @@
+from configparser import ConfigParser
 import psycopg2
+import os 
+from dotenv import load_dotenv 
+
+
+dotenv_path = os.path.join(os.path.dirname(__file__), '.env') 
+
+if os.path.exists(dotenv_path): 
+    load_dotenv(dotenv_path)
+
 from config import config
 
+class MyDatabase():
+    def __init__(self):
+        param = config()
+        self.conn = psycopg2.connect(**param)
+        self.cur = self.conn.cursor()
 
-def connect():
-    """ Connect to the PostgreSQL database server """
-    conn = None
-    try:
-        # read connection parameters
-        params = config()
 
-        # connect to the PostgreSQL server
-        print('Connecting to the PostgreSQL database...')
-        conn = psycopg2.connect(**params)
+    def query(self, query):
+        self.cur.execute(query)
+        self.conn.commit()
 
-        # create a cursor
-        cur = conn.cursor()
-
-        # execute a statement
-        print('PostgreSQL database version:')
-        cur.execute('SELECT version()')
-
-        # display the PostgreSQL database server version
-        db_version = cur.fetchone()
-        print(db_version)
-
-        # close the communication with the PostgreSQL
-        cur.close()
-    except (Exception, psycopg2.DatabaseError) as error:
-        print(error)
-    finally:
-        if conn is not None:
-            conn.close()
-            print('Database connection closed.')
+    
+    def close(self):
+        self.cur.close()
+        self.conn.close()
 
 
 if __name__ == '__main__':
-    connect()
+    db = MyDatabase()
+    # db.query('select * from users;')
+    db.query("INSERT INTO step (step_name, step_order) VALUES ('Destruction', 10)")
+    db.close()

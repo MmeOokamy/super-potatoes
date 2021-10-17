@@ -1,4 +1,6 @@
 import React, { useState, useEffect} from "react";
+import "./App.css";
+
 
 function App() {
 
@@ -17,11 +19,11 @@ function App() {
 
     return (
         <div>
-            {(typeof data.members === 'undefined') ? (
+            {(typeof data === 'undefined') ? (
                 <p>Loading...</p>
             ): (
-                data.members.map((member, i) => (
-                    <p key={i}>{member}</p>
+                data.map((i) => (
+                    <p key={i.id}>{i.user_name} - {i.user_power} </p>
                 ))
             )}
         </div>

@@ -8,19 +8,20 @@ def create_tables():
         """
             DROP TABLE IF EXISTS users CASCADE;
             DROP TABLE IF EXISTS logs CASCADE;
-            DROP TABLE IF EXISTS tasks_list CASCADE;
+            DROP TABLE IF EXISTS module CASCADE;
+            DROP TABLE IF EXISTS tasks CASCADE;
             DROP TABLE IF EXISTS task_items CASCADE;
-            DROP TABLE IF EXISTS column_list CASCADE;
-            DROP TABLE IF EXISTS status_list CASCADE;
-            DROP TABLE IF EXISTS module_list CASCADE;
+            DROP TABLE IF EXISTS step CASCADE;
+            DROP TABLE IF EXISTS status CASCADE;
         """,
         """
         CREATE TABLE logs (
             id SERIAL PRIMARY KEY UNIQUE,
-            user_id INTEGER NOT NULL,
+            user_id INTEGER,
+            user_name VARCHAR(100),
             task_id INTEGER,
             item_id INTEGER,
-            action VARCHAR(50),
+            action VARCHAR(50) NOT NULL,
             requete TEXT,
             created TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
         )
@@ -54,7 +55,8 @@ def create_tables():
             user_name VARCHAR(100) UNIQUE NOT NULL,
             user_password VARCHAR(255) NOT NULL,
             user_email VARCHAR(255) NOT NULL,
-            user_power SMALLINT DEFAULT 1
+            user_power SMALLINT DEFAULT 1,
+            user_token TEXT
         )
         """,
         """
@@ -86,7 +88,6 @@ def create_tables():
         )
         """,
         """
-            INSERT INTO users (user_name, user_password, user_email, user_power) VALUES ('ookamy', 'choisir', 'tvst@hotmail.fr', 4);
             INSERT INTO status (status_name, status_order) VALUES ('to do', 1), ('in progress', 2), ('done', 3), ('drop', 4);
             INSERT INTO step (id, step_name, step_order) VALUES (0, 'To Do', 1), (1, 'In Progress', 2), (2, 'In Testing', 3), (3, 'In Review', 4),(4, 'Done', 5), (5, 'Drop', 6);
             INSERT INTO module (module_name) VALUES ('Authentification'), ('Backend'), ('Frontend');

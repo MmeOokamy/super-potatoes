@@ -11,6 +11,7 @@
  * $ . menv/bin/activate
 In menv
  * $ pip install Flask
+ * $ pip install python-dotenv
 
 ### config_db.ini
    * [postgresql]
