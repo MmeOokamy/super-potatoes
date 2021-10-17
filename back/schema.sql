@@ -4,6 +4,7 @@ DROP TABLE IF EXISTS tasks_list;
 DROP TABLE IF EXISTS task_items;
 DROP TABLE IF EXISTS step;
 DROP TABLE IF EXISTS status;
+DROP TABLE IF EXISTS settings;
 
 
 
@@ -38,7 +39,6 @@ CREATE TABLE status (
     visible SMALLINT DEFAULT 1
 );
 
-
 CREATE TABLE users (
     id SERIAL PRIMARY KEY UNIQUE,
     user_name VARCHAR(100) UNIQUE NOT NULL,
@@ -46,6 +46,15 @@ CREATE TABLE users (
     user_email VARCHAR(255) NOT NULL,
     user_power SMALLINT DEFAULT 1,
     user_token TEXT
+);
+
+-- table des preferences
+CREATE TABLE settings (
+    id SERIAL PRIMARY KEY UNIQUE,
+    parameter VARCHAR(100) NOT NULL,
+    commentary TEXT,
+    default_value SMALLINT DEFAULT 1 NOT NULL,
+    value SMALLINT DEFAULT 1 NOT NULL
 );
 
 CREATE TABLE tasks (
@@ -75,7 +84,7 @@ CREATE TABLE task_items (
 );
 
 
-INSERT INTO users (user_name, user_password, user_email, user_power) VALUES ('ookamy', 'choisir', 'tvst@hotmail.fr', 4);
-INSERT INTO status (status_name, status_order) VALUES ('to do', 1), ('in progress', 2), ('done', 3), ('drop', 4);
-INSERT INTO step (id, step_name, step_order) VALUES (0, 'To Do', 1), (1, 'In Progress', 2), (2, 'In Testing', 3), (3, 'In Review', 4),(4, 'Done', 5), (5, 'Drop', 6);
-INSERT INTO module (module_name) VALUES ('Authentification'), ('Backend'), ('Frontend');
+-- INSERT INTO users (user_name, user_password, user_email, user_power) VALUES ('ookamy', 'choisir', 'tvst@hotmail.fr', 4);
+-- INSERT INTO status (status_name, status_order) VALUES ('to do', 1), ('in progress', 2), ('done', 3), ('drop', 4);
+-- INSERT INTO step (id, step_name, step_order) VALUES (0, 'To Do', 1), (1, 'In Progress', 2), (2, 'In Testing', 3), (3, 'In Review', 4),(4, 'Done', 5), (5, 'Drop', 6);
+-- INSERT INTO module (module_name) VALUES ('Authentification'), ('Backend'), ('Frontend');

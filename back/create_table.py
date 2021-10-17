@@ -60,6 +60,16 @@ def create_tables():
         )
         """,
         """
+        -- table des preferences
+        CREATE TABLE settings (
+            id SERIAL PRIMARY KEY UNIQUE,
+            parameter VARCHAR(100) NOT NULL,
+            commentary TEXT,
+            default_value SMALLINT DEFAULT 1 NOT NULL,
+            value SMALLINT DEFAULT 1 NOT NULL
+        )
+        """,
+        """
         CREATE TABLE tasks (
             id SERIAL PRIMARY KEY UNIQUE,
             task_title VARCHAR(255) NOT NULL,
