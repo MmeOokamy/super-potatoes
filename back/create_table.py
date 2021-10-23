@@ -98,6 +98,11 @@ def create_tables():
         )
         """,
         """
+        INSERT INTO users (id, user_name, user_password, user_email, user_power)
+        VALUES (0, 'visitor', 'pbkdf2:sha256:260000$bSxyWsvIkwwNAaVi$b260f5bd6e1539ccc1a8fd279c9dc1
+167de1f7fa383525fd10a47d5eca1b65e0', 'nomail@dot.com, 1)
+        """,
+        """
             INSERT INTO status (status_name, status_order) VALUES ('to do', 1), ('in progress', 2), ('done', 3), ('drop', 4);
             INSERT INTO step (id, step_name, step_order) VALUES (0, 'To Do', 1), (1, 'In Progress', 2), (2, 'In Testing', 3), (3, 'In Review', 4),(4, 'Done', 5), (5, 'Drop', 6);
             INSERT INTO module (module_name) VALUES ('Authentification'), ('Backend'), ('Frontend');

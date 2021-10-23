@@ -17,7 +17,6 @@ class MyDatabase():
         self.conn = psycopg2.connect(**param)
         self.cur = self.conn.cursor()
 
-
     def query(self, query):
         self.cur.execute(query)
         
