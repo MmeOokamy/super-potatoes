@@ -3,7 +3,7 @@
 
 # Super-Potatoes
 
-C'est avant tout une envie de travailler avec Flask et React mais aussi de réaliser un projet qui pourra être utile.
+C'est avant tout une envie de travailler avec Flask et React mais aussi de réaliser un projet qui pourra être utile. /!\ je ne suis pas encure sur a 100% d'utiliser react... a voir..
 Un Kanban, un **tableau de bord** qui me permettra de suivre mes futurs projets et de pouvoir y accéder partout.
 
 **Super-Potatoes** sera personnalisable avec l'utilisation de paramétrage custom.
@@ -12,7 +12,9 @@ La base de données n'est pas encore finie, le Modèle Conceptuel de Donnée cha
 
 Bref pour l'instant le back end est en construction. Quand le mcd sera dans une version stable avec les Modèles et crud créer je passerais au développement de la partie authentification. Utiliser Flask JWT extends me semble une bonne idée pour géré les tokens de session.
 
-Évidemment, j'essayais de faire du python POO, mais sans utiliser les bons outils, j'ai oublié SQLAlchemy pour faire les modèles ... Du coup le mystère du pourquoi ça ne veut pas est résolu.
+Évidemment, j'essayais de faire du python POO, mais sans utiliser les bons outils, j'ai oublié SQLAlchemy pour faire les modèles ... Du coup, le mystère du' pourquoi ça ne veut pas' est résolu.
+
+D'ailleurs la manipulation des tasks dans les colonne pourront etre geré avec le **drag'n drop**
 
 ## La Conception Générale
 

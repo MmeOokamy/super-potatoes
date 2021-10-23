@@ -13,7 +13,7 @@ In menv
  * $ pip install Flask
  * $ pip install python-dotenv
  * $ pip install Flask-SQLAlchemy
-
+ * $ pip install flask-jwt-extended
 
 ## Requirements files
  * $ pip freeze > requirements.txt
