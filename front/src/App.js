@@ -12,7 +12,6 @@ function App() {
         ).then(
             data => {
                 setData(data)
-                console.log(data)
             }
         )
     }, [])
@@ -21,9 +20,9 @@ function App() {
         <div>
             {(typeof data === 'undefined') ? (
                 <p>Loading...</p>
-            ): (
+            ):(
                 data.map((i) => (
-                    <p key={i.id}>{i.user_name} - {i.user_power} </p>
+                    <p id={i.id}>{i.user_name} - {i.user_power} </p>
                 ))
             )}
         </div>

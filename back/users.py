@@ -2,21 +2,22 @@ import os
 import psycopg2
 from werkzeug.security import generate_password_hash, check_password_hash
 
-from db import MyDatabase
+from config import config
 import log
 
 def users_list():
     sql = """ 
         SELECT * FROM users;
         """
+    connexion = None
     got_it = False
     users_list = []
 
     try:
-        # params = config()
-        # connexion = psycopg2.connect(**params)
-        # cursor = connexion.cursor()
-        # cursor.execute(sql)
+        params = config()
+        connexion = psycopg2.connect(**params)
+        cursor = connexion.cursor()
+        cursor.execute(sql)
 
         response = cursor.fetchall()
         for user in response:
