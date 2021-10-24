@@ -6,10 +6,9 @@ from dotenv import load_dotenv
 
 app = Flask(__name__)
 
-@app.route("/members")
-def members():
+@app.route("/")
+def get_all_user():
     users = users_list()
-    print(users_list())
     return json.dumps(users)
 
 
