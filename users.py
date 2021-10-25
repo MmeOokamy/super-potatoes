@@ -68,7 +68,7 @@ def create_user(user_name, user_password, user_email):
 
 
 if __name__ == '__main__':
-    # create_user('ooka', 'root', 'test@mail.fr')
+    create_user('ooka', 'root', 'test@mail.fr')
     # create_user('test', 'root', 'test@test.fr')
     # users_list()
-    Users.get_users()
+    # Users.get_users()

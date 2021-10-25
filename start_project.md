@@ -1,9 +1,4 @@
 
-# need to have 
-    - nodejs and create-react-app
-    - python3.9 and flask
-    - react 
-
 
 # flask and her Environment
  * $ mkdir back
@@ -26,11 +21,3 @@ In menv
    * database=dbname
    * user=dbuser
    * password=dbpassword
-
-# react
-
-* $ npm install -g create-react-app
-
-* $ npx create-react-app front
-* $ cd front/
-* $ yarn start
