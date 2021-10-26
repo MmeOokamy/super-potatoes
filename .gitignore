@@ -1,4 +1,4 @@
 menv/
-config_db.ini
+App/sql/config_db.ini
 __pycache__/
 .env
