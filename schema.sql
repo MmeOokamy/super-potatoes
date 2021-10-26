@@ -113,7 +113,8 @@ CREATE TABLE project_management_task_items (
 -- module d'Ookarchyves
 CREATE TABLE ookarchyves_themes (
     id SERIAL PRIMARY KEY UNIQUE,
-    theme_title VARCHAR(50)
+    theme_title VARCHAR(50),
+    theme_private SMALLINT DEFAULT 1
 );
 
 CREATE TABLE ookarchyves_articles (
@@ -124,11 +125,7 @@ CREATE TABLE ookarchyves_articles (
     article_update_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
     article_body TEXT,
     article_theme_id INTEGER,
+    article_private SMALLINT DEFAULT 1,
     FOREIGN KEY (article_theme_id) REFERENCES ookarchyves_themes(id),
     FOREIGN KEY (article_author_id) REFERENCES users(id)
 );
-
-
--- INSERT INTO status (status_name, status_order) VALUES ('to do', 1), ('in progress', 2), ('done', 3), ('drop', 4);
--- INSERT INTO step (id, step_name, step_order) VALUES (0, 'To Do', 1), (1, 'In Progress', 2), (2, 'In Testing', 3), (3, 'In Review', 4),(4, 'Done', 5), (5, 'Drop', 6);
--- INSERT INTO module (module_name) VALUES ('Authentification'), ('Backend'), ('Frontend');

@@ -125,7 +125,8 @@ def create_tables():
         -- module d'Ookarchyves
         CREATE TABLE ookarchyves_themes (
             id SERIAL PRIMARY KEY UNIQUE,
-            theme_title VARCHAR(50)
+            theme_title VARCHAR(50),
+            theme_private SMAllINT DEFAULT 1
         );
 
         CREATE TABLE ookarchyves_articles (
@@ -136,6 +137,7 @@ def create_tables():
             article_update_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
             article_body TEXT,
             article_theme_id INTEGER,
+            article_private SMAllINT DEFAULT 1,
             FOREIGN KEY (article_theme_id) REFERENCES ookarchyves_themes(id),
             FOREIGN KEY (article_author_id) REFERENCES users(id)
         );

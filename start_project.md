@@ -10,6 +10,10 @@ In menv
  * $ pip install Flask-SQLAlchemy
  * $ pip install flask-jwt-extended
 
+
+## Install requirement
+* $  pip install -r /path/to/requirements.txt
+
 ## Requirements files
  * $ pip freeze > requirements.txt
 
