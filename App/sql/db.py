@@ -30,7 +30,8 @@ class MyDatabase():
 
 
 if __name__ == '__main__':
-    db = MyDatabase()
-    # db.query('select * from users;')
-    db.query("INSERT INTO step (step_name, step_order) VALUES ('Destruction', 10)")
-    db.close()
+    pass
+    # db = MyDatabase()
+    # # db.query('select * from users;')
+    # db.query("INSERT INTO step (step_name, step_order) VALUES ('Destruction', 10)")
+    # db.close()
