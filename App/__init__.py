@@ -27,7 +27,7 @@ def create_app(test_config=None):
     # a simple page
     @app.route('/')
     def index():
-        return render_template('index.html')
+        return render_template('base.html')
 
     from .authentication import auth
     app.register_blueprint(auth.bp)
