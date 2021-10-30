@@ -20,6 +20,11 @@ D'ailleurs la manipulation des tasks dans les colonne pourront etre geré avec l
 
  * Flask, jinja, postgresql, token, javascript/jquery(ou autre)
 
+# todo
+ - revoir tout les chemins  static / template
+ - refaire la connexion a la bdd postgresql psycopg2
+ - revoir la maquette du site et les different chemins
+
 ### Module Authentification - loggin / loggout
 ### Module Logs - suivre les modifs de la bdd (trigger?)
 ### Module Parameters - Personnalisation de l'appli - couleurs - nom des champs-

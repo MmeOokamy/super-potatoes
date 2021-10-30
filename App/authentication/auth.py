@@ -5,7 +5,7 @@ from flask import (
 )
 from werkzeug.security import check_password_hash, generate_password_hash
 
-from moc.db import get_db
+# from moc.db import get_db
 
 bp = Blueprint('auth', __name__, url_prefix='/auth')
 
@@ -41,26 +41,26 @@ def register():
 
 @bp.route('/login', methods=('GET', 'POST'))
 def login():
-    if request.method == 'POST':
-        username = request.form['username']
-        password = request.form['password']
-        db = get_db()
-        error = None
-        user = db.execute(
-            'SELECT * FROM user WHERE username = ?', (username,)
-        ).fetchone()
+    # if request.method == 'POST':
+    #     username = request.form['username']
+    #     password = request.form['password']
+    #     db = get_db()
+    #     error = None
+    #     user = db.execute(
+    #         'SELECT * FROM user WHERE username = ?', (username,)
+    #     ).fetchone()
 
-        if user is None:
-            error = 'Incorrect username.'
-        elif not check_password_hash(user['password'], password):
-            error = 'Incorrect password.'
+    #     if user is None:
+    #         error = 'Incorrect username.'
+    #     elif not check_password_hash(user['password'], password):
+    #         error = 'Incorrect password.'
 
-        if error is None:
-            session.clear()
-            session['user_id'] = user['id']
-            return redirect(url_for('index'))
+    #     if error is None:
+    #         session.clear()
+    #         session['user_id'] = user['id']
+    #         return redirect(url_for('index'))
 
-        flash(error)
+    #     flash(error)
 
     return render_template('auth/login.html')
 
