@@ -27,7 +27,12 @@ def create_app(test_config=None):
     # a simple page
     @app.route('/')
     def index():
-        return render_template('base.html')
+        return render_template('index.html')
+
+    # a simple page
+    @app.route('/menu')
+    def menu():
+        return render_template('content.html', logg=True, road="Test Template Menu", name="Mastodonte")
 
     from .authentication import auth
     app.register_blueprint(auth.bp)

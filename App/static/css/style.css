@@ -9,6 +9,8 @@ Theme Name: Font Mass Effect
   font-style: normal;
   src: url("../fonts/me123-webfont.woff2") format("woff2"), url("../fonts/me123-webfont.woff") format("woff");
 }
+
+
 /* COLOR */
 :root {
   --darkred:#800000;
@@ -21,16 +23,14 @@ Theme Name: Font Mass Effect
   --bglight:#ffffff;
   --bglighttrans80:rgba(255, 255, 255,0.8);
   --bglighttrans50:rgba(255, 255, 255,0.5);
+  --bgMenu:#333031;
+  --textMenu:#FFCA5A;
 }
 
 body {
   font-family: "Roboto", sans-serif;
   width: 100%;
   height: auto;
-  background-image: url("../img/background_liara_code.png");
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-position: top;
   text-align: center;
   margin: 0 auto;
   display: flex;
@@ -41,11 +41,25 @@ body {
   font: 1rem;
 }
 
+/* Affichage de Liara en bg si on est sur la page index| accueil */
+#index-page{
+  background-image: url("../img/background_liara_code.png");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: top;
+}
+
 .massEffect {
   font-family: "mass_effect_123regular";
   letter-spacing: 0.05em;
   font-size: 2.5em;
   font-weight: bolder;
+}
+
+/* Navigation */
+
+#sidenav {
+  background-color: var(--bgMenu);
 }
 
 h2 {

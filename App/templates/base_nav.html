@@ -1,5 +1,17 @@
-{% block nav %}
-<nav>
-    
-</nav>
-{% endblock %}
+
+  <div id="sidenav" class="ui left fixed inverted vertical menu">
+    <div class="item">
+        {% if name %}
+        <img class="ui mini image" src="{{ url_for('static', filename='img/OokaLogo.svg') }}">
+        {{name}}
+      {% endif %}
+    </div>
+    <a class="item"><i class="fas fa-cat"></i> Ookarchyves</a>
+    <a class="item"><i class="fas fa-cat"></i> Ookamanager</a>
+    <a class="item"><i class="fas fa-cat"></i> Sign-in</a>
+    <div class="item botom">
+        <i class="fas fa-cat"></i>
+        Logout
+        <i class="fas fa-cat"></i>
+    </div>
+  </div>
