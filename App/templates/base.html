@@ -26,30 +26,34 @@
 
     {% if logg %}
         <div class="container-max-width columns pb-0 mb-0">
-            <div id="sidenav" class="column is-narrow >
+            <div id="sidenav" class="column is-narrow ">
                 <!-- menu -->
                 <aside class="menu">
-                    <p class="menu-label">
+                    <p class="menu-label" style="color: var(--textMenu) !important;">
                         {% if name %}
                             <img class="image is-32x32 is-rounded" src="{{ url_for('static', filename='img/OokaLogo.svg') }}">
                             {{name}}
                         {% endif %}
                     </p>
-                    <ul class="menu-list">
-                        <li><a class="item"><i class="fas fa-cat"></i> Ookarchyves</a></li>
-                        <li><a class="item"><i class="fas fa-cat"></i> Ookamanager</a></li>
-                        <li><a class="item"><i class="fas fa-cat"></i> Sign-in</a></li>
-                        <li><a>Dashboard</a></li>
-                        <li><a>Customers</a></li>
+                    <ul class="menu-list ">
+                        <li><a class="item {% if menu_active == 'Ookarchyves' %} is-active{% endif %}" href="{{ url_for('auth.logout') }}"><i class="fas fa-cat"></i> Ookarchyves</a></li>
+                        <li><a class="item {% if menu_active == 'Ookamanager' %} is-active{% endif %}" href="{{ url_for('ookamanager.main') }}"><i class="fas fa-cat"></i> Ookamanager</a></li>
+                        <li><a class="item {% if menu_active == 'Modules' %} is-active{% endif %}"><i class="fas fa-cat"></i> Modules</a></li>
                     </ul>
-                  </aside>
+                    <ul class="menu-list">
+                        <li><a class="item">Parametrage</a></li>
+                        <li><a class="item" href="{{ url_for('auth.logout') }}"><i class="fas fa-sign-out-alt"></i>Log-out</a></li>
+                    </ul>
+                </aside>
             </div>
 
-            <div id="" class="column " > {% block body %}{% endblock %}</div>
+            <div id="" class="column content">
+                {% block body %}{% endblock %}
+            </div>
         </div>
         
     {% else %}
-        {% extends "base_nav.html" %}
+        {% extends "auth/login.html" %}
     {% endif %}
 
     <!-- partie script -->

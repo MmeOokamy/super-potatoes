@@ -28,13 +28,20 @@ def create_app(test_config=None):
     @app.route('/')
     def index():
         return render_template('index.html')
+    app.add_url_rule('/', endpoint='index')
+
 
     # menu test page
     @app.route('/menu')
     def menu():
-        return render_template('content.html', logg=False, name="PageTest")
+        module_name = "Modules"
+        return render_template('module/modules.html', logg=True, name="PageTest", menu_active=module_name)
 
     from .authentication import auth
     app.register_blueprint(authentication.auth.bp)
+
+    from .ookamanager import main
+    app.register_blueprint(ookamanager.main.bp)
+
 
     return app

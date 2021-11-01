@@ -59,13 +59,36 @@ body {
 
 /********************
 *  
+*  SideBar | Sidenav | nav
+*
+********************/
+#sidenav {
+  background-color: var(--bgMenu);
+  position: sticky;
+  display: inline-block;
+  vertical-align: top;
+  max-height: 100vh;
+  min-height: 100vh;
+  overflow-y: auto;
+  top: 0;
+  bottom: 0;
+  padding: 20px;
+}
+
+#sidenav .is-active {
+  background-color: var(--textMenu) !important;
+  color: var(--bgMenu) !important;
+}
+
+#sidenav .is-active i {
+  color: var(--lightred) !important;
+}
+
+/********************
+*  
 *  Global CSS  ooka-name
 *
 ********************/
-
-#sidenav {
-  background-color: var(--bgMenu);
-}
 
 #ooka-body {
   background-color: violet;
