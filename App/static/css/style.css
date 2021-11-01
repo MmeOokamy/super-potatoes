@@ -25,10 +25,11 @@ Theme Name: Font Mass Effect
   --bglighttrans80:rgba(255, 255, 255,0.8);
   --bglighttrans50:rgba(255, 255, 255,0.5);
   --bgMenu:#333031;
-  --textMenu:#FFCA5A;
+  --textMenu:#ffcb5a;
   --bluelightvintage: #177C8B;
   --bluedarkvintage: #084A62;
   --orangered:#DC3C35;
+  --bgbody:#DC3C35;
 }
 
 body {
@@ -102,15 +103,21 @@ body {
   color: var(--textMenu) !important;
 }
 
+#sidenav .ver-bot {
+  vertical-align: bottom;
+  position: absolute;
+  bottom: 0;
+}
+
 /********************
 *  
 *  Global CSS  ooka-name
 *
 ********************/
 /* Si loggin */
-#ooka-body {
-  background-color: var(--orangered);
-}
+/* #ooka-body {
+  background-color: var(--bgbody);
+} */
 
 h2 {
   color: var(--lightred);

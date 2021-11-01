@@ -1,3 +1,6 @@
 $(document).ready(function(){
-    $('#login').modal();
+    // Settings View
+    $('#params-table').DataTable();
+    
 });
+
