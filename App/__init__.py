@@ -29,12 +29,12 @@ def create_app(test_config=None):
     def index():
         return render_template('index.html')
 
-    # a simple page
+    # menu test page
     @app.route('/menu')
     def menu():
-        return render_template('content.html', logg=True, road="Test Template Menu", name="Mastodonte")
+        return render_template('content.html', logg=False, name="PageTest")
 
     from .authentication import auth
-    app.register_blueprint(auth.bp)
+    app.register_blueprint(authentication.auth.bp)
 
     return app

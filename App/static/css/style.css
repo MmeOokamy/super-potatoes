@@ -3,6 +3,7 @@
 Theme Name: Font Mass Effect
  */
 @import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+@import "https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css";
 @font-face {
   font-family: "mass_effect_123regular";
   font-weight: 100 900;
@@ -56,10 +57,20 @@ body {
   font-weight: bolder;
 }
 
-/* Navigation */
+/********************
+*  
+*  Global CSS  ooka-name
+*
+********************/
 
 #sidenav {
   background-color: var(--bgMenu);
+}
+
+#ooka-body {
+  background-color: violet;
+  margin: 0px 20px 20px 240px !important;
+  width: auto;
 }
 
 h2 {
@@ -95,7 +106,12 @@ h2 {
   max-width: 800px;
 }
 
-/* // BLOCK SIZE AND CONFIG */
+/********************
+*  PAGE INDEX
+*
+* BLOCK SIZE AND CONFIG
+*
+********************/
 #first {
   height: 100vh;
   min-height: 500px;
@@ -238,11 +254,9 @@ h2 {
 .card-content p {
   color: var(--textcolor);
 }
-
-/* // Footer */
-footer {
-  display: flex;
-  flex-direction: row;
-}
-
+/********************
+*  
+* END OF PAGE INDEX
+*
+********************/
 /*# sourceMappingURL=style.css.map */

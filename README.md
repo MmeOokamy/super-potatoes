@@ -19,6 +19,7 @@ D'ailleurs la manipulation des tasks dans les colonne pourront etre geré avec l
 ## La Conception Générale
 
  * Flask, jinja, postgresql, token, javascript/jquery(ou autre)
+ * Framework CSS => on va tester Semantic UI (NO WAY) 
 
 # todo
  - revoir tout les chemins  static / template
@@ -28,7 +29,7 @@ D'ailleurs la manipulation des tasks dans les colonne pourront etre geré avec l
 ### Module Authentification - loggin / loggout
 ### Module Logs - suivre les modifs de la bdd (trigger?)
 ### Module Parameters - Personnalisation de l'appli - couleurs - nom des champs-
-### Module Project Management - Tableau de bord - Gestion de projet -
+### Module Ookamanager - Project Management - Tableau de bord - Gestion de projet -
 ### Module Ookarchyves - Mes docs - archives -
 
 ### Mhé
