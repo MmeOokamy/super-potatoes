@@ -9,12 +9,12 @@ def create_tables():
         DROP TABLE IF EXISTS logs CASCADE;
         DROP TABLE IF EXISTS settings CASCADE;
         DROP TABLE IF EXISTS users CASCADE;
-        DROP TABLE IF EXISTS project_management_modules CASCADE;
-        DROP TABLE IF EXISTS project_management_steps CASCADE;
-        DROP TABLE IF EXISTS project_management_status CASCADE;
-        DROP TABLE IF EXISTS project_management_projects CASCADE;
-        DROP TABLE IF EXISTS project_management_tasks CASCADE;
-        DROP TABLE IF EXISTS project_management_task_items CASCADE;
+        DROP TABLE IF EXISTS ookamanager_modules CASCADE;
+        DROP TABLE IF EXISTS ookamanager_steps CASCADE;
+        DROP TABLE IF EXISTS ookamanager_status CASCADE;
+        DROP TABLE IF EXISTS ookamanager_projects CASCADE;
+        DROP TABLE IF EXISTS ookamanager_tasks CASCADE;
+        DROP TABLE IF EXISTS ookamanager_task_items CASCADE;
         DROP TABLE IF EXISTS ookarchyves_articles CASCADE;
         DROP TABLE IF EXISTS ookarchyves_themes CASCADE;
         """,
@@ -56,7 +56,7 @@ def create_tables():
         """,
         """
         -- module Project Management
-        CREATE TABLE project_management_modules (
+        CREATE TABLE ookamanager_modules (
             id SERIAL PRIMARY KEY UNIQUE,
             module_name VARCHAR(255) NOT NULL,
             module_visible SMALLINT DEFAULT 1,
@@ -64,7 +64,7 @@ def create_tables():
         )
         """,
         """
-        CREATE TABLE project_management_steps (
+        CREATE TABLE ookamanager_steps (
             id SERIAL PRIMARY KEY UNIQUE,
             step_name VARCHAR(255) NOT NULL,
             step_order INTEGER,
@@ -73,14 +73,14 @@ def create_tables():
         )
         """,
         """
-        CREATE TABLE project_management_status (
+        CREATE TABLE ookamanager_status (
             id SERIAL PRIMARY KEY UNIQUE,
             status_name VARCHAR(255) NOT NULL,
             status_order INTEGER,
             status_visible SMALLINT DEFAULT 1
         );
 
-        CREATE TABLE project_management_projects (
+        CREATE TABLE ookamanager_projects (
             id SERIAL PRIMARY KEY UNIQUE,
             project_name VARCHAR(50),
             project_description TEXT,
@@ -93,7 +93,7 @@ def create_tables():
             FOREIGN KEY (project_user_id) REFERENCES users (id)
         );
 
-        CREATE TABLE project_management_tasks (
+        CREATE TABLE ookamanager_tasks (
             id SERIAL PRIMARY KEY UNIQUE,
             task_title VARCHAR(255) NOT NULL,
             task_body VARCHAR(255) NOT NULL,
@@ -107,19 +107,19 @@ def create_tables():
             task_update_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
             task_finish_at TIMESTAMP,
             FOREIGN KEY (task_user_id) REFERENCES users (id),
-            FOREIGN KEY (task_project_id) REFERENCES project_management_projects (id),
-            FOREIGN KEY (task_step_id) REFERENCES project_management_steps (id)
+            FOREIGN KEY (task_project_id) REFERENCES ookamanager_projects (id),
+            FOREIGN KEY (task_step_id) REFERENCES ookamanager_steps (id)
         );
 
-        CREATE TABLE project_management_task_items (
+        CREATE TABLE ookamanager_task_items (
             id SERIAL PRIMARY KEY UNIQUE,
             item_name VARCHAR(255) NOT NULL,
             item_description TEXT,
             item_task_id INTEGER,
             item_status_id SMALLINT DEFAULT 1,
             visible SMALLINT DEFAULT 1,
-            FOREIGN KEY (item_task_id) REFERENCES project_management_tasks(id),
-            FOREIGN KEY (item_status_id) REFERENCES  project_management_status(id)
+            FOREIGN KEY (item_task_id) REFERENCES ookamanager_tasks(id),
+            FOREIGN KEY (item_status_id) REFERENCES  ookamanager_status(id)
         );
 
         -- module d'Ookarchyves

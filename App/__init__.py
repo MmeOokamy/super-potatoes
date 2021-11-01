@@ -43,5 +43,11 @@ def create_app(test_config=None):
     from .ookamanager import main
     app.register_blueprint(ookamanager.main.bp)
 
+    from .ookarchyves import main
+    app.register_blueprint(ookarchyves.main.bp)
+
+    from .settings import params
+    app.register_blueprint(settings.params.bp)
+
 
     return app

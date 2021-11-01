@@ -7,9 +7,9 @@ from werkzeug.security import check_password_hash, generate_password_hash
 
 # from moc.db import get_db
 
-bp = Blueprint('ookamanager', __name__, url_prefix='/ookamanager')
+bp = Blueprint('params', __name__, url_prefix='/setting')
 
 @bp.route('/')
-def main():
-    module_name = 'Ookamanager'
-    return render_template('module/ookamanager/main.html',  logg=True, name="Ookamy", menu_active=module_name)
+def params():
+    module_name = 'Params'
+    return render_template('module/setting/setting.html',  logg=True, name="Ookamy", menu_active=module_name)

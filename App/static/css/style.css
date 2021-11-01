@@ -26,6 +26,9 @@ Theme Name: Font Mass Effect
   --bglighttrans50:rgba(255, 255, 255,0.5);
   --bgMenu:#333031;
   --textMenu:#FFCA5A;
+  --bluelightvintage: #177C8B;
+  --bluedarkvintage: #084A62;
+  --orangered:#DC3C35;
 }
 
 body {
@@ -39,6 +42,7 @@ body {
   vertical-align: middle;
   justify-content: center;
   color: var(--textcolor);
+ 
   font: 1rem;
 }
 
@@ -59,7 +63,7 @@ body {
 
 /********************
 *  
-*  SideBar | Sidenav | nav
+*  SideBar | Sidenav | nav | Menu
 *
 ********************/
 #sidenav {
@@ -78,10 +82,24 @@ body {
 #sidenav .is-active {
   background-color: var(--textMenu) !important;
   color: var(--bgMenu) !important;
+  border-radius: 10px;
+}
+#sidenav li a:hover {
+  background-color: var(--textMenu) !important;
+  color: var(--bgMenu) !important;
+  border-radius: 10px;
 }
 
 #sidenav .is-active i {
   color: var(--lightred) !important;
+}
+
+#sidenav li {
+  padding: 0.5em 0.75em;
+}
+
+#sidenav li > a {
+  color: var(--textMenu) !important;
 }
 
 /********************
@@ -89,11 +107,9 @@ body {
 *  Global CSS  ooka-name
 *
 ********************/
-
+/* Si loggin */
 #ooka-body {
-  background-color: violet;
-  margin: 0px 20px 20px 240px !important;
-  width: auto;
+  background-color: var(--orangered);
 }
 
 h2 {
@@ -103,6 +119,7 @@ h2 {
 .ooka-hr-m {
   width: 50%;
   border: 1px dashed var(--lightredtrans80);
+  margin:  5px auto 5px auto;
 }
 
 .ooka-center {
@@ -282,4 +299,20 @@ h2 {
 * END OF PAGE INDEX
 *
 ********************/
+
+
+/********************
+*  
+* Page Login
+* id="ooka-login"
+********************/
+#ooka-login {
+  width: auto;
+  min-height: 100vh;
+  margin: auto;
+}
+#ooka-login label {
+  color: var(--textMenu);
+}
+
 /*# sourceMappingURL=style.css.map */
