@@ -1,19 +1,20 @@
 from os import environ, path
-from .ooka_tools import get_env_variable
+from dotenv import load_dotenv
 
 basedir = path.abspath(path.dirname(__file__))
+load_dotenv(path.join(basedir, '.env'))
 
 class Config:
     """Set Flask configuration from environment variables."""
-
-    FLASK_APP = get_env_variable('FLASK_APP')
-    FLASK_ENV = get_env_variable('FLASK_ENV')
-    SECRET_KEY = get_env_variable('SK')
+    # Général Config
+    FLASK_APP = environ.get('FLASK_APP')
+    FLASK_ENV = environ.get('FLASK_ENV')
+    SECRET_KEY = environ.get('FLASK_SK')
 
 
     # Static Assets
-    STATIC_FOLDER = get_env_variable('App/static')
-    TEMPLATES_FOLDER = get_env_variable('App/templates')
+    STATIC_FOLDER = environ.get('STATIC_FOLDER')
+    TEMPLATES_FOLDER = environ.get('TEMPLATES_FOLDER')
     COMPRESSOR_DEBUG = environ.get('COMPRESSOR_DEBUG')
 
     # Flask-SQLAlchemy

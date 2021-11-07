@@ -1,24 +1,32 @@
+from datetime import datetime as dt
+from flask import current_app as app
+from flask import request, render_template, make_response, redirect, url_for
 
-@app.route("/")  # index ookamy
+
+ # index ookamy
+@app.route("/") 
 def home():
     # Template completement independant
     return render_template('index.html')
-    app.add_url_rule('/', endpoint='index')
+
 
 
 @app.route("/connect", methods=['GET', 'POST'])  # formulaire de login authentification.auth | template auth.login
 def login():
     # GET => affiche le form
     # POST => envoie les données
-    # if request.method == 'POST':
-    #     username = request.form['username']
-    #     password = request.form['password']
+    if request.method == 'POST':
+        # username = request.form['username']
+        # password = request.form['password']
+        return redirect(url_for('module'))
+
+
     return render_template('auth/login.html')
 
 @app.route('/logout')
 def logout():
     session.clear()
-    return redirect(url_for('index'))
+    return redirect(url_for('home'))
 
 # enregistrement de compte qui ne sera pas mis en place
 # Il y aura juste 2 comptes : visitor et ookamy
@@ -26,6 +34,8 @@ def logout():
 def register():
     return render_template('auth/register.html')
 
+#
+#
 
 @app.route("/modules")  # liste des modules
 def module():
