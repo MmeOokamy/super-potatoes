@@ -12,4 +12,4 @@ bp = Blueprint('ookarchyves', __name__, url_prefix='/ookarchyves')
 @bp.route('/')
 def main():
     module_name = 'Ookarchyves'
-    return render_template('module/ookarchyves/main.html',  logg=True, name="Ookamy", menu_active=module_name)
+    return render_template('module/ookarchyves/main.html', name="Ookamy", menu_active=module_name)

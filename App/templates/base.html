@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Identité Numérique d'une développeuse">
-    <title>Ookamy - {% if logg %}{% block title %}{% endblock %}{% else %} Log In{% endif %}</title>
+    <title>Ookamy -{% block title %}{% endblock %}</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/reset.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
     <link rel="icon" type="image/ico" href="{{ url_for('static', filename='img/OokaLogo.svg') }}">
@@ -23,41 +23,19 @@
 
 </head>
 
-<body {% if logg %} id="ooka-body" {% endif %}>
-
-    {% if logg %}
-        <div id="" class="container-max-width columns pb-0 pr-2 mb-0">
-            <div id="sidenav" class="column is-narrow ">
-                <!-- menu -->
-                <aside class="menu">
-                    <p class="menu-label" style="color: var(--textMenu) !important;">
-                        {% if name %}
-                            <img class="image is-32x32 is-rounded" src="{{ url_for('static', filename='img/OokaLogo.svg') }}">
-                            {{name}}
-                        {% endif %}
-                    </p>
-                    <ul class="menu-list ">
-                        <li><a class="item {% if menu_active == 'Modules' %} is-active{% endif %}" href="{{ url_for('menu') }}"><i class="far fa-folder"></i> Modules</a></li>
-                        <li><a class="item {% if menu_active == 'Ookarchyves' %} is-active{% endif %}" href="{{ url_for('ookarchyves.main') }}"><i class="fas fa-cat"></i> Ookarchyves</a></li>
-                        <li><a class="item {% if menu_active == 'Ookamanager' %} is-active{% endif %}" href="{{ url_for('ookamanager.main') }}"><i class="fas fa-cat"></i> Ookamanager</a></li>
-                    </ul>
-                    <ul class="menu-list ver-bot">
-                        <li><a class="item {% if menu_active == 'Params' %} is-active{% endif %}"" href="{{ url_for('params.params') }}"><i class="fas fa-users-cog"></i> Parametrage</a></li>
-                        <li><a class="item" href="{{ url_for('auth.logout') }}"><i class="fas fa-sign-out-alt"></i>Log-out</a></li>
-                    </ul>
-                </aside>
-            </div>
-
-            <div id="" class="column content">
-                {% block body %}{% endblock %}
-            </div>
-        </div>
-        
-    {% else %}
-    <div id="ooka-login" class="column content">
-        {% extends "auth/login.html" %}
-    </div>
+<body id="ooka-body">
+    {% if request.endpoint != 'connect' %}
+        {% include 'navigation.html' %}
     {% endif %}
+
+        <div id="" class="column content">
+            {% block body %}{% endblock %}
+        </div>
+       
+         
+<!--    <div id="ooka-login" class="column content">
+     
+    </div> -->
 
     <!-- partie script -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"

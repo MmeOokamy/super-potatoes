@@ -1,9 +1,4 @@
-DROP TABLE IF EXISTS project_management_tasks CASCADE;
-DROP TABLE IF EXISTS project_management_projects CASCADE;
-DROP TABLE IF EXISTS project_management_task_items CASCADE;
-DROP TABLE IF EXISTS project_management_status CASCADE;
-DROP TABLE IF EXISTS project_management_steps CASCADE;
-DROP TABLE IF EXISTS project_management_modules CASCADE;
+
 DROP TABLE IF EXISTS logs CASCADE;
 DROP TABLE IF EXISTS settings CASCADE;
 DROP TABLE IF EXISTS users CASCADE;
@@ -37,20 +32,21 @@ CREATE TABLE settings (
 );
 
 -- Module Authentification
-
 CREATE TABLE users (
     id SERIAL PRIMARY KEY UNIQUE,
     user_name VARCHAR(100) UNIQUE NOT NULL,
     user_password VARCHAR(255) NOT NULL,
+    user_magical_word VARCHAR(50) NOT NULL,
     user_email VARCHAR(255) NOT NULL,
     user_power SMALLINT DEFAULT 1,
     user_token TEXT
 );
 
-INSERT INTO users (id, user_name, user_password, user_email, user_power)
-VALUES (0, 'visitor', 'pbkdf2:sha256:260000$bSxyWsvIkwwNAaVi$b260f5bd6e1539ccc1a8fd279c9dc1167de1f7fa383525fd10a47d5eca1b65e0', 'nomail@dot.com', 1);
+-- 
+INSERT INTO users (id, user_name, user_password, user_magical_word, user_email, user_power)
+VALUES (0, 'visitor', 'pbkdf2:sha256:260000$bSxyWsvIkwwNAaVi$b260f5bd6e1539ccc1a8fd279c9dc1167de1f7fa383525fd10a47d5eca1b65e0', 'poop', 'nomail@dot.com', 1);
 
--- module Project Management
+-- module Ookamanager Kanban Project
 CREATE TABLE ookamanager_modules (
     id SERIAL PRIMARY KEY UNIQUE,
     module_name VARCHAR(255) NOT NULL,
@@ -119,6 +115,7 @@ CREATE TABLE ookamanager_task_items (
 CREATE TABLE ookarchyves_themes (
     id SERIAL PRIMARY KEY UNIQUE,
     theme_title VARCHAR(50),
+    theme_description TEXT,
     theme_private SMALLINT DEFAULT 1
 );
 

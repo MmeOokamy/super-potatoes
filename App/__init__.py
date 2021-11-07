@@ -1,53 +1,84 @@
 import os
-
 from flask import Flask, render_template
+from flask_sqlalchemy import SQLAlchemy
+
+from .config import Config
+
+db = SQLAlchemy()
 
 
-def create_app(test_config=None):
-    # create and configure the app
-    app = Flask(__name__, instance_relative_config=True)
-    app.config.from_mapping(
-        SECRET_KEY='dev',
-        # DATABASE=os.path.join(app.instance_path, 'flaskr.sqlite'),
-    )
+def init_app():
+    """Construct the core application."""
+    app = Flask(__name__, instance_relative_config=False)
+    app.config.from_object('config.Config')
 
-    if test_config is None:
-        # load the instance config, if it exists, when not testing
-        app.config.from_pyfile('config.py', silent=True)
-    else:
-        # load the test config if passed in
-        app.config.from_mapping(test_config)
+    db.init_app(app)
 
-    # ensure the instance folder exists
-    try:
-        os.makedirs(app.instance_path)
-    except OSError:
-        pass
+    with app.app_context():
+        from . import routes  # Import routes
+        db.create_all()  # Create sql tables for our data models
 
-    # a simple page
-    @app.route('/')
-    def index():
-        return render_template('index.html')
-    app.add_url_rule('/', endpoint='index')
+        from .authentication import auth
+        app.register_blueprint(authentication.auth.bp)
+
+        from .ookamanager import main
+        app.register_blueprint(ookamanager.main.bp)
+
+        from .ookarchyves import main
+        app.register_blueprint(ookarchyves.main.bp)
+
+        from .settings import params
+        app.register_blueprint(settings.params.bp)
+
+        return app
 
 
-    # menu test page
-    @app.route('/menu')
-    def menu():
-        module_name = "Modules"
-        return render_template('module/modules.html', logg=True, name="PageTest", menu_active=module_name)
+# def create_app(test_config=None):
+#     # create and configure the app
+#     app = Flask(__name__, instance_relative_config=True)
+#     app.config.from_mapping(
+#         SECRET_KEY='dev',
+#         # DATABASE=os.path.join(app.instance_path, 'flaskr.sqlite'),
+#     )
 
-    from .authentication import auth
-    app.register_blueprint(authentication.auth.bp)
+#     if test_config is None:
+#         # load the instance config, if it exists, when not testing
+#         app.config.from_pyfile('config.py', silent=True)
+#     else:
+#         # load the test config if passed in
+#         app.config.from_mapping(test_config)
 
-    from .ookamanager import main
-    app.register_blueprint(ookamanager.main.bp)
+#     # ensure the instance folder exists
+#     try:
+#         os.makedirs(app.instance_path)
+#     except OSError:
+#         pass
 
-    from .ookarchyves import main
-    app.register_blueprint(ookarchyves.main.bp)
+#     # a simple page
+#     @app.route('/')
+#     def index():
+#         return render_template('index.html')
+#     app.add_url_rule('/', endpoint='index')
 
-    from .settings import params
-    app.register_blueprint(settings.params.bp)
 
+#     # menu test page
+#     @app.route('/connect')
+#     def connect():
+#         module_name = "Connection"
+        
 
-    return app
+#         return render_template('auth/login.html')
+    
+#     from .authentication import auth
+#     app.register_blueprint(authentication.auth.bp)
+
+#     from .ookamanager import main
+#     app.register_blueprint(ookamanager.main.bp)
+
+#     from .ookarchyves import main
+#     app.register_blueprint(ookarchyves.main.bp)
+
+#     from .settings import params
+#     app.register_blueprint(settings.params.bp)
+    
+#     return app

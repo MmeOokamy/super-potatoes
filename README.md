@@ -16,10 +16,12 @@ Le MCD a completement changer de tête -> **schema.sql**
 
 D'ailleurs la manipulation des tasks dans les colonne pourront etre geré avec le **drag'n drop**
 
+Ah et j'aime bien ce petit guide *https://hackersandslackers.com/your-first-flask-application* c'est sur onze chapitres.
+
 ## La Conception Générale
 
  * Flask, jinja, postgresql, token, javascript/jquery(ou autre)
- * Framework CSS => on va tester Semantic UI (NO WAY) 
+ * Framework CSS => on va tester Semantic UI (NO WAY) => On va vers **Bulma**!!
 
 # todo
  - revoir tout les chemins  static / template

@@ -45,14 +45,15 @@ def create_tables():
             id SERIAL PRIMARY KEY UNIQUE,
             user_name VARCHAR(100) UNIQUE NOT NULL,
             user_password VARCHAR(255) NOT NULL,
+            user_magical_word VARCHAR(50) NOT NULL,
             user_email VARCHAR(255) NOT NULL,
             user_power SMALLINT DEFAULT 1,
             user_token TEXT
-        )
-        """,
-        """
-        INSERT INTO users (id, user_name, user_password, user_email, user_power)
-        VALUES (0, 'visitor', 'pbkdf2:sha256:260000$bSxyWsvIkwwNAaVi$b260f5bd6e1539ccc1a8fd279c9dc1167de1f7fa383525fd10a47d5eca1b65e0', 'nomail@dot.com', 1)
+        );
+
+        -- visitor account
+        INSERT INTO users (id, user_name, user_password, user_magical_word, user_email, user_power)
+        VALUES (0, 'visitor', 'pbkdf2:sha256:260000$bSxyWsvIkwwNAaVi$b260f5bd6e1539ccc1a8fd279c9dc1167de1f7fa383525fd10a47d5eca1b65e0', 'poop', 'nomail@dot.com', 1);
         """,
         """
         -- module Project Management
@@ -147,23 +148,29 @@ def create_tables():
     conn = None
     try:
         # read the connection parameters
+        print('Read the connection parameters')
         params = config()
         # connect to the PostgreSQL server
+        print('Connect to the PostgreSQL server')
         conn = psycopg2.connect(**params)
         cur = conn.cursor()
         # create table one by one
+        print("Create table one by one")
         for command in commands:
             cur.execute(command)
         # close communication with the PostgreSQL database server
+        print('Close communication with the PostgreSQL database server')
         cur.close()
         # commit the changes
+        print('commit the changes')
         conn.commit()
-        print("Database has been modified")
+        print("====>  Database has been modified  <====")
     except (Exception, psycopg2.DatabaseError) as error:
         print(error)
     finally:
         if conn is not None:
             conn.close()
+            print('Disabled Connection')
 
 
 if __name__ == '__main__':

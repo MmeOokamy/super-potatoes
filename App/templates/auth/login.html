@@ -1,5 +1,10 @@
- 
+{% extends 'base.html' %}
+
+{% block title %} Connectez-vous{% endblock %}
+{% block body %}
+
 <div class="field">
+
   <label class="label">Identifiant</label>
   <p class="control has-icons-left has-icons-right">
     <input class="input" type="text" placeholder="identifiant">
@@ -21,9 +26,20 @@
   </p>
 </div>
 <div class="field">
+  <label class="label">Clé Magique</label>
+  <p class="control has-icons-left">
+    <input class="input" type="text" placeholder="Clé magique">
+    <span class="icon is-small is-left">
+      <i class="fas fa-lock"></i>
+    </span>
+  </p>
+</div>
+<div class="field">
   <p class="control">
     <button class="button is-success">
-      Login
+      M'identifier
     </button>
   </p>
 </div>
+
+{% endblock %}

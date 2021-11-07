@@ -1,20 +1,22 @@
+from os import environ, path
+from .ooka_tools import get_env_variable
 
-from configparser import ConfigParser
+basedir = path.abspath(path.dirname(__file__))
+
+class Config:
+    """Set Flask configuration from environment variables."""
+
+    FLASK_APP = get_env_variable('FLASK_APP')
+    FLASK_ENV = get_env_variable('FLASK_ENV')
+    SECRET_KEY = get_env_variable('SK')
 
 
-def config(filename='sql/config_db.ini', section='postgresql'):
-    # create a parser
-    parser = ConfigParser()
-    # read config file
-    parser.read(filename)
+    # Static Assets
+    STATIC_FOLDER = get_env_variable('App/static')
+    TEMPLATES_FOLDER = get_env_variable('App/templates')
+    COMPRESSOR_DEBUG = environ.get('COMPRESSOR_DEBUG')
 
-    # get section, default to postgresql
-    db = {}
-    if parser.has_section(section):
-        params = parser.items(section)
-        for param in params:
-            db[param[0]] = param[1]
-    else:
-        raise Exception('Section {0} not found in the {1} file'.format(section, filename))
-
-    return db
+    # Flask-SQLAlchemy
+    SQLALCHEMY_DATABASE_URI = environ.get('SQLALCHEMY_DATABASE_URI')
+    SQLALCHEMY_ECHO = False
+    SQLALCHEMY_TRACK_MODIFICATIONS = False

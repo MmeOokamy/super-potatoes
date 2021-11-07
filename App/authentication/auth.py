@@ -5,9 +5,11 @@ from flask import (
 )
 from werkzeug.security import check_password_hash, generate_password_hash
 
-# from moc.db import get_db
+# import de la bdd config
+
 
 bp = Blueprint('auth', __name__, url_prefix='/auth')
+session = {}
 
 @bp.route('/register', methods=('GET', 'POST'))
 def register():
@@ -62,7 +64,9 @@ def login():
 
         flash(error)
 
-    return render_template('auth/login.html', logg=True)
+        session['logg'] = True
+
+    return render_template('auth/login.html', session=session)
 
 
 @bp.before_app_request
