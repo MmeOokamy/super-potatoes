@@ -7,9 +7,14 @@ from werkzeug.security import check_password_hash, generate_password_hash
 
 # from moc.db import get_db
 
-bp = Blueprint('ookarchyves', __name__, url_prefix='/ookarchyves')
+oa_bp = Blueprint(
+    'ookarchyves', __name__,
+    url_prefix='/ookarchyves',
+    template_folder='templates',
+    static_folder='static'
+)
 
-@bp.route('/')
+@oa_bp.route('/')
 def main():
     module_name = 'Ookarchyves'
-    return render_template('module/ookarchyves/main.html', name="Ookamy", menu_active=module_name)
+    return render_template('index.html', name="Ookamy", menu_active=module_name)

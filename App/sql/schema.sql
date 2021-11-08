@@ -35,11 +35,13 @@ CREATE TABLE settings (
 CREATE TABLE users (
     id SERIAL PRIMARY KEY UNIQUE,
     user_name VARCHAR(50) UNIQUE NOT NULL,
-    user_password VARCHAR(255) NOT NULL,
+    user_password VARCHAR(200) NOT NULL,
     user_magical_word VARCHAR(50) NOT NULL,
     user_email VARCHAR(80) NOT NULL,
     user_power SMALLINT DEFAULT 1,
-    user_token TEXT
+    user_token TEXT,
+    user_created_on TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    user_last_login TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
 );
 
 -- 
