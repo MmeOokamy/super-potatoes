@@ -28,6 +28,8 @@ Ah et j'aime bien ce petit guide *https://hackersandslackers.com/your-first-flas
  - refaire la connexion a la bdd postgresql psycopg2
  - revoir la maquette du site et les different chemins
 
+# LES MODULES
+*divers modif: debut d'ajout des blueprint avec template et static dans le meme module comme ça chaque module sera independant*
 ### Module Authentification - loggin / loggout
 ### Module Logs - suivre les modifs de la bdd (trigger?)
 ### Module Parameters - Personnalisation de l'appli - couleurs - nom des champs-
