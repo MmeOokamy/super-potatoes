@@ -4,6 +4,7 @@ from werkzeug.security import generate_password_hash, check_password_hash
 from datetime import datetime
 
 from .. import db
+from ..settings import models
 
 class User(UserMixin, db.Model):
     """User account model."""
@@ -35,29 +36,27 @@ class User(UserMixin, db.Model):
         unique=False,
         nullable=True
 	)
-    user_power= db.Column(
+    user_power = db.Column(
         db.String(200),
         index=False,
         unique=False,
         nullable=False,
         default=1
 	)
-    user_token= db.Column(
-        db.String(50),
+    user_token = db.Column(
+        db.Text,
         index=False,
         unique=False,
         nullable=True
 	)
     user_created_on = db.Column(
         db.DateTime,
-        index=False,
-        unique=False,
+        default=datetime.utcnow,
         nullable=True
     )
     user_last_login = db.Column(
         db.DateTime,
-        index=False,
-        unique=False,
+        onupdate=datetime.utcnow,
         nullable=True
     )
 
@@ -75,3 +74,14 @@ class User(UserMixin, db.Model):
 
     def __repr__(self):
         return '{}'.format(self.user_name)
+
+    def power_lvl(self):
+        return self.user_power
+
+    def fuul_powaa(self):
+        if self.power_lvl() == 4:
+            return True
+
+    def is_visitor(self):
+        if self.power_lvl() == 1:
+            return True

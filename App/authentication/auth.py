@@ -33,10 +33,7 @@ def signup():
         flash('A user already exists with that email address.')
     return render_template(
         'signup.jinja2',
-        title='Create an Account.',
-        form=form,
-        template='signup-page',
-        body="Sign up for a user account."
+        form=form
     )
 
 
@@ -63,10 +60,7 @@ def login():
         return redirect(url_for('auth_bp.login'))
     return render_template(
         'auth/login.jinja2',
-        form=form,
-        title='Log in.',
-        template='login-page',
-        body="Log in with your User account."
+        form=form
     )
 
 

@@ -9,26 +9,30 @@
       <tr>
         <th>id</th>
         <th>Nom Parametre</th>
+        <th>Module</th>
         <th>Description</th>
+        <th>Valeur par defaut</th>
         <th>Activer</th>
       </tr>
     </thead>
     <tbody>
-      <tr>
-        <th>1</th>
-        <td>private_article</td>
-        <td>mefjzemlfjzelf jzmel z</td>
-        <td><i class="fas fa-sync has-text-grey-light"></i></td>
-     </tr>
-     <tr>
-        <th>2</th>
-        <td>private_article_isible</td>
-        <td>mefjzemlfjzelf jzmel z</td>
-        <td>
+      {% for p in pref %}
+        <tr>
+          <th>{{p.id}}</th>
+          <td>{{p.setting_parameter}}</td>
+          <td>{{p.setting_module}}</td>
+          <td>{{p.setting_commentary}}</td>
+          <td>{{p.setting_default_value}}</td>
+          <td>
+            {% if p.setting_value %}
+            <i class="fas fa-sync has-text-grey-light"></i>
+            {% else %}
             <i class="fas fa-sync has-text-success fa-spin"></i>
-        </td>
-     </tr>
-     
+            {% endif %}
+          </td>
+        </tr>
+      {% endfor %}
+          
     </tbody>
   </table>
 {% endblock %}
