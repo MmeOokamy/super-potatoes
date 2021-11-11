@@ -45,8 +45,11 @@ CREATE TABLE users (
 );
 
 -- 
-INSERT INTO users (id, user_name, user_password, user_magical_word, user_email, user_power)
-VALUES (0, 'visitor', 'pbkdf2:sha256:260000$bSxyWsvIkwwNAaVi$b260f5bd6e1539ccc1a8fd279c9dc1167de1f7fa383525fd10a47d5eca1b65e0', 'poop', 'nomail@dot.com', 1);
+INSERT INTO users (id, user_name, user_password, user_magical_word, user_email, user_power, user_created_on)
+VALUES (0, 'visitor', 'sha256$qddhRJjpInPFvtgB$95b2af47611b6fb043ba13bfa38ed9d01f36546c90ff82b372b96e1499c49698', 'poop', 'nomail@dot.com', 1, now()),
+(1, 'Ookamy', 'sha256$0UmOnlJRp88WHO8e$0db2aaeffcf732c91ca8471b8069f20be74e5a7044261826347564e3294a1c13', 'licorn', 'ooka@dot.fr', 4, now());
+
+
 
 -- module Ookamanager Kanban Project
 CREATE TABLE ookamanager_modules (

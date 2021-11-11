@@ -1,20 +1,19 @@
-
 from flask import current_app as app
 from flask_login import current_user, login_required
 from flask import (
     Blueprint, flash, g, redirect, render_template, request, session, url_for
 )
-from .. import login_manager
-from .models import db, Themes, Articles
 
-oa_bp = Blueprint(
-    'ookarchyves', __name__,
-    url_prefix='/ookarchyves',
+from .. import login_manager
+# from moc.db import get_db
+
+om_bp = Blueprint('ookamanager', __name__,
+    url_prefix='/ookamanager',
     template_folder='templates'
 )
 
-@oa_bp.route('/')
+@om_bp.route('/')
 @login_required
-def oa_index():
-    module_name = 'Ookarchyves'
-    return render_template('oa_i.html', menu_active=module_name)
+def om_index():
+    module_name = 'Ookamanager'
+    return render_template('om_i.html', menu_active=module_name)

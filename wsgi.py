@@ -1,7 +1,7 @@
-from App import init_app
+from App import create_app
 
 
-app = init_app()
+app = create_app()()
 
 if __name__ == "__main__":
     app.run()

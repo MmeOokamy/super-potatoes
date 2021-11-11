@@ -1,41 +1,42 @@
 import os
 from flask import Flask, render_template
 from flask_sqlalchemy import SQLAlchemy
+from flask_login import LoginManager
 
 db = SQLAlchemy()
+
+login_manager = LoginManager()
+
 
 
 def create_app(test_config=None):
     # create and configure the app
     app = Flask(__name__, instance_relative_config=False)
-        
 
-    if test_config is None:
-        # load the instance config, if it exists, when not testing
-        app.config.from_pyfile('config.py', silent=True)
-    else:
-        # load the test config if passed in
-        app.config.from_mapping(test_config)
+    # Application Configuration
+    app.config.from_object('config.Config')
+    # app.config.from_pyfile('config.py', silent=True)  # another form
 
-    # ensure the instance folder exists
-    try:
-        os.makedirs(app.instance_path)
-    except OSError:
-        pass
+    # Initialize Plugins
+    db.init_app(app)
+    login_manager.init_app(app)
 
     with app.app_context():
         from . import routes
     
-        # from .authentication import auth
-        # app.register_blueprint(authentication.auth.bp)
+        from .authentication import auth
+        app.register_blueprint(auth.auth_bp)
 
-        # from .ookamanager import main
-        # app.register_blueprint(ookamanager.main.bp)
+        from .ookamanager import routes
+        app.register_blueprint(routes.om_bp)
 
-        # from .ookarchyves import main
-        # app.register_blueprint(ookarchyves.main.bp)
+        from .ookarchyves import routes
+        app.register_blueprint(routes.oa_bp)
 
-        # from .settings import params
-        # app.register_blueprint(settings.params.bp)
-        
+        from .settings import params
+        app.register_blueprint(params.p_bp)
+
+        # Create Database Models
+        db.create_all()
+
     return app

@@ -2,3 +2,4 @@ menv/
 App/sql/config_db.ini
 __pycache__/
 .env
+App/sql/config_db.ini.old

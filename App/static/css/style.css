@@ -68,6 +68,10 @@ body {
 *  SideBar | Sidenav | nav | Menu
 *
 ********************/
+#ooka-body-screen {
+  margin: 0;
+}
+
 #sidenav {
   background-color: var(--bgMenu);
   position: sticky;

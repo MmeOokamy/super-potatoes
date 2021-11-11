@@ -1,8 +1,9 @@
 """Database models."""
-from . import db
 from flask_login import UserMixin
 from werkzeug.security import generate_password_hash, check_password_hash
+from datetime import datetime
 
+from .. import db
 
 class User(UserMixin, db.Model):
     """User account model."""
@@ -32,43 +33,45 @@ class User(UserMixin, db.Model):
         db.String(50),
         index=False,
         unique=False,
-        nullable=False
+        nullable=True
 	)
     user_power= db.Column(
         db.String(200),
         index=False,
         unique=False,
-        nullable=False
+        nullable=False,
+        default=1
 	)
     user_token= db.Column(
         db.String(50),
         index=False,
         unique=False,
-        nullable=False
+        nullable=True
 	)
     user_created_on = db.Column(
         db.DateTime,
         index=False,
         unique=False,
-        nullable=False
+        nullable=True
     )
     user_last_login = db.Column(
         db.DateTime,
         index=False,
         unique=False,
-        nullable=False
+        nullable=True
     )
 
     def set_password(self, password):
         """Create hashed password."""
-        self.password = generate_password_hash(
+        self.user_password = generate_password_hash(
             password,
             method='sha256'
         )
+        # sha256$qddhRJjpInPFvtgB$95b2af47611b6fb043ba13bfa38ed9d01f36546c90ff82b372b96e1499c49698
 
     def check_password(self, password):
         """Check hashed password."""
-        return check_password_hash(self.password, password)
+        return check_password_hash(self.user_password, password)
 
     def __repr__(self):
-        return '<User {}>'.format(self.username)
+        return '{}'.format(self.user_name)

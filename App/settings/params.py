@@ -1,15 +1,12 @@
-import functools
-
 from flask import (
     Blueprint, flash, g, redirect, render_template, request, session, url_for
 )
-from werkzeug.security import check_password_hash, generate_password_hash
+from flask_login import current_user, login_required
 
-# from moc.db import get_db
+p_bp = Blueprint('params', __name__, url_prefix='/setting')
 
-bp = Blueprint('params', __name__, url_prefix='/setting')
-
-@bp.route('/')
+@p_bp.route('/')
+@login_required
 def params():
     module_name = 'Params'
-    return render_template('module/setting/setting.html',  logg=True, name="Ookamy", menu_active=module_name)
+    return render_template('setting/setting.html',menu_active=module_name)
