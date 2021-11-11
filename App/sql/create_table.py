@@ -37,7 +37,12 @@ def create_tables():
             setting_commentary TEXT,
             setting_default_value SMALLINT DEFAULT 1 NOT NULL,
             setting_value SMALLINT DEFAULT 1 NOT NULL
-        )
+        ); 
+
+        INSERT INTO settings (setting_parameter, setting_module, setting_commentary,setting_default_value , setting_value)
+        VALUES 
+        ('Visitor_archyves','Ookarchyves','Permet au visiteur de voir et d''acceder au menu Archyves', 1, 0),
+        ('Visitor_manager','Ookamanager','Permet au visiteur de voir et d''acceder au menu Manager',0 ,1);
         """,
         """
         -- Module Authentification
@@ -131,8 +136,13 @@ def create_tables():
         CREATE TABLE ookarchyves_themes (
             id SERIAL PRIMARY KEY UNIQUE,
             theme_title VARCHAR(50),
-            theme_private SMAllINT DEFAULT 1
+            theme_description TEXT,
+            theme_private SMALLINT DEFAULT 1
         );
+
+        INSERT INTO ookarchyves_themes (theme_title, theme_description, theme_private) 
+        values ('SQL', 'sql, console postgresql', 0),('Linux', 'Manjaro, console, install', 0);
+
 
         CREATE TABLE ookarchyves_articles (
             id SERIAL PRIMARY KEY UNIQUE,

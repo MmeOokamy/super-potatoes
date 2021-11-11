@@ -24,10 +24,8 @@ class Themes(db.Model):
         nullable=False
     )
 
-
-
     def __repr__(self):
-        return '<Theme {}>'.format(self.theme_title)
+        return '{}'.format(self.theme_title)
 
 
 class Articles(db.Model):

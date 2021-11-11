@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+
+{% block title %} Ajouter une Thèmatique{% endblock %}
+{% block body %}
+  <div class="form-wrapper">
+
+
+    {% for message in get_flashed_messages() %}
+      <div class="alert alert-warning">
+        <button
+          type="button"
+          class="close"
+          data-dismiss="alert">
+          x
+        </button>
+        {{ message }}
+      </div>
+    {% endfor %}
+
+    <form method="POST" action="thematique">
+    {{ form.csrf_token }}
+      <fieldset class="name">
+        {{ form.theme_title.label }}
+        {{ form.theme_title(placeholder='Sql, Développement, VScode') }}
+        {% if form.theme_title.errors %}
+          <ul class="errors">
+            {% for error in form.theme_title.errors %}
+              <li>{{ error }}</li>{% endfor %}
+          </ul>
+        {% endif %}
+      </fieldset>
+       <fieldset class="description">
+        {{ form.theme_description.label }}
+        {{ form.theme_description(class="textarea is-info", rows="10" ) }}
+      </fieldset>
+       <fieldset class="private">
+        {{ form.theme_private.label }}
+        {{ form.theme_private(class="radio" ) }}
+      </fieldset>
+
+<div class="submit-button" style="margin-top:10px;">
+        {{ form.submit(class="button is-success") }}
+      </div>
+
+    </form>
+
+{% endblock %}

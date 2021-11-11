@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+
+{% block title %} Ajouter un Article{% endblock %}
+{% block body %}
+<div class="form-wrapper">
+
+{% for message in get_flashed_messages() %}
+<div class="alert alert-warning">
+<button
+type="button"
+class="close"
+data-dismiss="alert">
+x
+</button>
+{{ message }}
+</div>
+{% endfor %}
+
+<form method="POST" action="article">
+    {{ form.csrf_token }}   
+    {{ form.article_author_id}}    
+    <div class="columns">
+        <div class="column is-two-fifths">
+        
+            <fieldset class="theme select is-danger">
+                {{ form.article_theme_id.label }}
+                {{ form.article_theme_id }}
+            </fieldset>
+
+            <fieldset class="name">
+                {{ form.article_title.label }}
+                {{ form.article_title(placeholder='Sql, Développement, VScode') }}
+                {% if form.article_title.errors %}
+                <ul class="errors">
+                {% for error in form.article_title.errors %}
+                <li>{{ error }}</li>{% endfor %}
+                </ul>
+                {% endif %}
+            </fieldset>
+            
+            <fieldset class="private">
+                {{ form.article_private.label }}
+                {{ form.article_private(class="radio" ) }}
+            </fieldset>
+        </div>
+        <div class="column">
+            <fieldset class="description">
+                {{ form.article_body.label }}
+                {{ form.article_body(class="textarea is-info", rows="20" ) }}
+            </fieldset>
+        </div>
+    </div>
+
+    <div class="submit-button" style="margin-top:10px;">
+    {{ form.submit(class="button is-success") }}
+    </div>
+
+</form>
+
+{% endblock %}
