@@ -55,3 +55,8 @@ In menv
    * database=dbname
    * user=dbuser
    * password=dbpassword
+
+
+## Mysql config
+   * pip install mysqlclient
+   * pip install flask_mysqldb

@@ -14,7 +14,7 @@ class SignupForm(FlaskForm):
         'Password',
         validators=[
             DataRequired(),
-            Length(min=8, message='Select a stronger password.')
+            Length(min=8, message='Créer un mot de pass fort')
         ]
     )
     user_magical_word = StringField(
@@ -25,7 +25,7 @@ class SignupForm(FlaskForm):
         'Email',
         validators=[
             Length(min=6),
-            Email(message='Enter a valid email.'),
+            Email(message='Entrer un email valide'),
             DataRequired()
         ]
     )
@@ -39,8 +39,8 @@ class LoginForm(FlaskForm):
         'Email',
         validators=[
             DataRequired(),
-            Email(message='Enter a valid email.')
+            Email(message='Entrer un email valide.')
         ]
     )
-    user_password = PasswordField('Password', validators=[DataRequired()])
-    submit = SubmitField('Log In')
+    user_password = PasswordField('Mots de passe', validators=[DataRequired()])
+    submit = SubmitField('Connexion')

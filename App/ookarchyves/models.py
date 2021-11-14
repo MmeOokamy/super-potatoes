@@ -67,4 +67,8 @@ class Articles(db.Model):
     
     def __repr__(self):
         return '<Article {}>'.format(self.article_title)
+
+    def articles_by_theme(self, t_id):
+        pass
+
     

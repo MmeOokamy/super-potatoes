@@ -18,13 +18,33 @@ oa_bp = Blueprint(
 @login_required
 def oa_index():
     module_name = 'Ookarchyves'
+    count = [{
+        "theme": Themes.query.count(),
+        "article": Articles.query.count(),
+    },]
     themes = Themes.query.all()
     articles = Articles.query.all()
+
+    #Init list de dict
+    menu = []
+
+    # crée l'object theme avec les articles
+    for theme in themes:
+        t={}
+        t['id']= theme.id
+        t['nom']= theme.theme_title
+        t['description']= theme.theme_description
+
+        # va chercher les articles correspondants
+        arts = Articles.query.filter(Articles.article_theme_id==theme.id).all()
+        t['articles']= arts
+        menu.append(t)
+
     return render_template(
         'oa_i.html', 
         menu_active=module_name,
-        themes=themes,
-        articles=articles
+        themes=menu,
+        counter=count
     )
 
 
@@ -42,7 +62,7 @@ def oa_theme():
             )
             db.session.add(theme)
             db.session.commit()  # Create new theme
-            return redirect(url_for('oa_index'))
+            return redirect(url_for('ookarchyves.oa_index'))
         flash('Ce theme existe déjà')
     return render_template(
         'oa_theme_form.jinja2',
@@ -68,7 +88,7 @@ def oa_article():
             )
             db.session.add(article)
             db.session.commit()  # Create new article
-            return redirect(url_for('oa_index'))
+            return redirect(url_for('ookarchyves.oa_index'))
         flash('Cette article existe déjà')
     return render_template(
         'oa_article_form.jinja2',

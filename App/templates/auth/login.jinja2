@@ -5,8 +5,7 @@
 <link rel="stylesheet" href="{{ url_for('static', filename='css/auth.css') }}">
 {% endblock %}
 {% block body %}
-  <div class="form-wrapper">
-
+  <div class="form-wrapper container is-max-desktop ">
     <div class="logo">
       <img src="{{ url_for('static', filename='img/OokaLogo.svg') }}" alt="logo"/>
     </div>
@@ -18,7 +17,8 @@
       </div>
     {% endfor %}
 
-    <form method="POST" action="/login">
+
+    <form method="POST" action="/login" class="box">
       {{ form.csrf_token }}
       <fieldset class="email">
        <label class="label"> {{ form.user_email.label }}</label>
@@ -32,7 +32,7 @@
         {% endif %}
       </fieldset>
 
-      <fieldset class="password">
+      <fieldset class="password"  style="margin-top:10px;">
         <label class="label">{{ form.user_password.label }}</label>
         <span class="icon is-small is-left"><i class="fas fa-lock"></i></span>
         {{ form.user_password }}
@@ -42,15 +42,14 @@
               <li>{{ error }}</li>{% endfor %}
           </ul>
         {% endif %}
-      </fieldset>
-
-      <div class="submit-button" style="margin-top:10px;">
-        {{ form.submit(class="button is-success") }}
+      </fieldset> 
+      <div style="margin-top:10px;">
+          <i class="far fa-laugh-wink"></i>
       </div>
-
-      {# <div class="login-signup">
-        <span>Don't have an account? <a href="{{ url_for('auth_bp.signup') }}">Sign up.</a></span>
-      </div> #}
+      <div class="submit-button" style="margin-top:10px;margin-bottom:10px;">
+         {{ form.submit(class="button is-success") }}
+      </div>
+    <h6>Inscription Impossible =)</h6>
 
     </form>
   </div>

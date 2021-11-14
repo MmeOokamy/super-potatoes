@@ -2,6 +2,10 @@
 
 
 # Super-Potatoes:
+*****************************************************
+Good News! le site est en prod xD  => ***https://mme.ookamy.fr/*** 
+ * Il a fallut que je modiffi la base de donnée qui etait pour postgreSQL en MySQL friendly xD 
+*****************************************************
 
 Changement de direction avec **Super-Potatoes**, le but c'est de mettre en ligne un site avec ma doc et un tableau de bord de gestion de projet. 
 Un Kanban, un **tableau de bord** qui me permettra de suivre mes futurs projets et de pouvoir y accéder partout.
