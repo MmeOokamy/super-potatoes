@@ -4,14 +4,18 @@ from flask import request, render_template, make_response, redirect, url_for
 from flask_login import current_user, login_required, logout_user
 
  # index ookamy
-@app.route("/") 
+@app.route("/")
 def home():
+    # pour le copyright
+    currentDateTime = dt.now()
+    date = currentDateTime.date()
+    year = date.strftime("%Y")
     # Template completement independant
-    return render_template('index.html')
+    return render_template('index.html', d=year)
 
 
 # liste des modules
-@app.route("/modules") 
+@app.route("/modules")
 def module():
     return render_template('modules.html', menu_active='Modules')
 
@@ -49,8 +53,8 @@ def logout():
 
 
 
-# 
-# 
+#
+#
 
 # @app.route("/ookarchyves")  # index de ookarchyves
 # def ookarchyves_index():
@@ -60,22 +64,22 @@ def logout():
 # def ookarchyves_form_add_theme():
 #     return render_template('module/ookarchyves/fTheme.html')
 
-# @app.route("/ookarchyves/farticle", methods=['GET', 'POST'])  # 
+# @app.route("/ookarchyves/farticle", methods=['GET', 'POST'])  #
 # def ookarchyves_form_add_article():
 #     return render_template('module/ookarchyves/fArticle.html')
 
-# @app.route("/ookarchyves/article")  # voir l'article avec la possibilité de naviger vers suppression de l'article ou la modification 
+# @app.route("/ookarchyves/article")  # voir l'article avec la possibilité de naviger vers suppression de l'article ou la modification
 # def ookarchyves_article():
 #     return render_template('module/ookarchyves/article.html')
 
-# 
-# 
+#
+#
 
 # @app.route("/modules/ookamanager")  # index du kanban
 # def moddule():
 #     return render_template('module/ookamanager/main.html')
 
 
-# @app.route("/chemin/url")  
+# @app.route("/chemin/url")
 # def nomvariable():
 #     return render_template('dossier/fichier.html')
