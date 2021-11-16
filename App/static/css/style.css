@@ -119,6 +119,7 @@ header, main, footer {
   vertical-align: bottom;
   position: absolute;
   bottom: 0;
+  margin-bottom: 20px;
 }
 
 
