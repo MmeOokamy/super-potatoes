@@ -4,7 +4,6 @@
 {% block body %}
   <div class="form-wrapper">
 
-
     {% for message in get_flashed_messages() %}
       <div class="alert alert-warning">
         <button
@@ -34,13 +33,16 @@
         {{ form.theme_description(class="textarea is-info", rows="10" ) }}
       </fieldset>
        <fieldset class="private">
-        {{ form.theme_private.label }}
-        {{ form.theme_private(class="radio" ) }}
+       <label>
+        {{ form.theme_private(class="" ) }}
+        <span></span>
+       
+       </label>
       </fieldset>
 
-<div class="submit-button" style="margin-top:10px;">
-        {{ form.submit(class="button is-success") }}
-      </div>
+    <div class="submit-button" style="margin-top:10px;">
+      {{ form.submit(class="button is-success") }}
+    </div>
 
     </form>
 

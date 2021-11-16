@@ -62,21 +62,30 @@ body {
 }
 
 
-header, main, footer {
+header, main {
    padding-left: 300px;
  }
 
  @media only screen and (max-width : 992px) {
-   header, main, footer {
+   header, main {
      padding-left: 0;
    }
  }
-/********************
-*
-*  SideBar | Sidenav | nav | Menu
-*
-********************/
 
+ header{
+   margin: 0;
+   width: 100%;
+   min-height: 50px;
+
+ }
+
+ header .fixed-action-btn {
+   top: 5px;
+ }
+
+/********************
+*  SideBar | Sidenav | nav | Menu
+********************/
 
 #sidenav {
   background-color: var(--bgMenu);
@@ -159,6 +168,11 @@ header, main, footer {
 .max-width-800 {
   max-width: 800px;
 }
+
+/********************
+*  couleur
+********************/
+
 
 /********************
 *  PAGE INDEX

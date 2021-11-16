@@ -2,25 +2,25 @@
 
 {% block title %}Main,Ookaarchyves{% endblock %}
 {% block topbar %}
-
-<div id="" class="col s12">
-<div class="col "><input class="input" type="text" placeholder="Futur cadre de recherche"></div>
-<div class="col">
-  {% for c in counter %}
-  {% for key, value in c.items() %}
-  <div class="level-item has-text-centered">
-     <div>
-        <p class="heading">{{key}}</p>
-        <p class="title">{{value}}</p>
-     </div>  
-  </div>
-  <p class="level-item"><a title="Ajouter un {{key}}" href="{{url_for('ookarchyves.oa_' + key)}}" class="button is-small is-warning  is-light is-rounded"><i class="fas fa-plus"></i></a></p>
-  {% endfor %}
-  {% endfor %}
-
+<header class="row">
+  <div class="col "><input class="input" type="text" placeholder="Futur cadre de recherche"></div>
+  
+<div class="fixed-action-btn">
+  <a class="btn-floating btn-large">
+    <i class="fas fa-plus"></i>
+  </a>
+  <ul>
+    <li><a class="btn-floating red" title="Ajouter une category" href="{{url_for('ookarchyves.oa_theme')}}">
+      <i class="fas fa-folder-plus"></i>
+    </a></li>
+    <li><a class="btn-floating yellow darken-1 tooltipped" title="Ecrire un article" href="{{url_for('ookarchyves.oa_article')}}">
+      <i class="fas fa-file-alt"></i>
+    </a></li>
+  </ul>
 </div>
-    
-  </div>
+      
+
+</header>
 {% endblock %}
 
 

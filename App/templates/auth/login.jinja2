@@ -2,28 +2,37 @@
 {% extends "base.html" %}
 {% block title %} Connectez-vous{% endblock %}
 {% block stylesheet %}
+   <style>
+   .prefix {
+      padding-right:10px !important;
+   }
 
+   main{
+      padding-left: 0 !important;
+      margin:auto;
+   }
+
+   </style>
 {% endblock %}
 {% block body %}
-   <div class="row" style="margin-top:20px;">
-
-      <div class="col s12">
-         {% for message in get_flashed_messages() %}
-         <div class="alert alert-warning">
-            <button type="button" class="close" data-dismiss="alert">&times;</button>
-            {{ message }}
+   <div class="">
+      
+   </div>
+   <div class="row box">
+      <div id="div-logo" class="col s12">
+         <div class="logo">
+            <img src="{{ url_for('static', filename='img/OokaLogo.svg') }}" alt="logo"/>
          </div>
-         {% endfor %}
       </div>
 
-      <div class="col">
-         <form method="POST" action="/login" class="box">
+      <div id="div-form" class="col s12">
+         <form method="POST" action="/login">
          {{ form.csrf_token }}
 
-         <fieldset class="email">
-            <label class="label"> {{ form.user_email.label }}</label>
-            <span class="icon is-small is-left"><i class="fas fa-user"></i></span>
+         <fieldset class="email input-field">
+            <span class="icon prefix"><i class="fas fa-user"></i></span>
             {{ form.user_email(placeholder='youremail@example.com') }}
+            <label class="label"> {{ form.user_email.label }}</label>
             {% if form.user_email.errors %}
                <ul class="errors">
                {% for error in form.user_email.errors %}
@@ -33,9 +42,9 @@
             {% endif %}
          </fieldset>
 
-         <fieldset class="password"  style="margin-top:10px;">
+         <fieldset class="password input-field">
+            <span class="icon prefix" style=""><i class="fas fa-lock"></i></span>
             <label class="label">{{ form.user_password.label }}</label>
-            <span class="icon is-small is-left"><i class="fas fa-lock"></i></span>
             {{ form.user_password }}
             {% if form.user_email.errors %}
                <ul class="errors">
@@ -46,8 +55,13 @@
             {% endif %}
          </fieldset> 
 
+         {% for message in get_flashed_messages() %}
+         <div class="alert alert-warning">
+            {{ message }}
+         </div>
+         {% endfor %}
                
-         <div style="margin-top:10px;">
+         <div>
             <i class="far fa-laugh-wink"></i>
          </div>
          <div class="submit-button" style="margin-top:10px;margin-bottom:10px;">
@@ -57,12 +71,5 @@
 
          </form>
       </div>
-      
-      <div class="col">
-         <div class="logo">
-            <img src="{{ url_for('static', filename='img/OokaLogo.svg') }}" alt="logo"/>
-         </div>
-      </div>
-   
    </div>
 {% endblock %}

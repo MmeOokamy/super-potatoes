@@ -19,10 +19,9 @@ oa_bp = Blueprint(
 @login_required
 def oa_index():
     module_name = 'Ookarchyves'
-    count = [{
-        "theme": Themes.query.count(),
-        "article": Articles.query.count(),
-    },]
+    
+    c_theme = Themes.query.count()
+    c_article = Articles.query.count()
     themes = Themes.query.all()
     articles = Articles.query.all()
 
@@ -45,7 +44,8 @@ def oa_index():
         'oa_i.html', 
         menu_active=module_name,
         themes=menu,
-        counter=count
+        c_theme = Themes.query.count(),
+        c_article = Articles.query.count()
     )
 
 

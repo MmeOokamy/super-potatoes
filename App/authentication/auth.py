@@ -56,7 +56,7 @@ def login():
             login_user(user)
             next_page = request.args.get('next')
             return redirect(next_page or url_for('module'))
-        flash('Invalid username/password combination')
+        flash('Email ou Mot de passe invalide')
         return redirect(url_for('auth_bp.login'))
     return render_template(
         'auth/login.jinja2',
