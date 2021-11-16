@@ -13,7 +13,7 @@
     <li><a class=" {% if menu_active == 'Ookarchyves' %} is-active{% endif %}" href="{{ url_for('ookarchyves.oa_index') }}"><i class="fas fa-cat"></i> Ookarchyves</a></li>
     <li><a class=" {% if menu_active == 'Ookamanager' %} is-active{% endif %}" href="{{ url_for('ookamanager.om_index') }}"><i class="fas fa-cat"></i> Ookamanager</a></li>
     {% if current_user.fuul_powaa() %}
-    <li><a class="subheader {% if menu_active == 'Params' %} is-active{% endif %}" href="{{ url_for('params.params') }}"><i class="fas fa-users-cog"></i> Parametrage</a></li>
+    <li><a class=" {% if menu_active == 'Params' %} is-active{% endif %}" href="{{ url_for('params.params') }}"><i class="fas fa-users-cog"></i></a></li>
     {% endif %}
-    <li><a class="subheader" href="{{ url_for('logout') }}"><i class="fas fa-sign-out-alt"></i>Log-out</a></li>
+    <li><a class="" href="{{ url_for('logout') }}"><i class="fas fa-sign-out-alt"></i>Log-out</a></li>
 </ul>
