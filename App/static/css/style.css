@@ -116,10 +116,9 @@ header, main, footer {
 }
 
 #sidenav .ver-bot {
-  vertical-align: bottom;
   position: absolute;
   bottom: 0;
-  margin-bottom: 20px;
+  left: 0;
 }
 
 
