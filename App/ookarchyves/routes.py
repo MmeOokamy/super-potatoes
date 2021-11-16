@@ -11,7 +11,8 @@ from .forms import ThemeForm, ArticleForm
 oa_bp = Blueprint(
     'ookarchyves', __name__,
     url_prefix='/ookarchyves',
-    template_folder='templates'
+    template_folder='templates',
+    static_folder='static'
 )
 
 @oa_bp.route('/')

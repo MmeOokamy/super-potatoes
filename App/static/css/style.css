@@ -43,7 +43,6 @@ body {
   vertical-align: middle;
   justify-content: center;
   color: var(--textcolor);
-
   font: 1rem;
 }
 
@@ -68,9 +67,7 @@ body {
 *  SideBar | Sidenav | nav | Menu
 *
 ********************/
-#ooka-body-screen {
-  margin: 0;
-}
+
 
 #sidenav {
   background-color: var(--bgMenu);
@@ -83,6 +80,7 @@ body {
   top: 0;
   bottom: 0;
   padding: 20px;
+  margin: 0;
 }
 
 #sidenav .is-active {
@@ -114,16 +112,12 @@ body {
   bottom: 0;
 }
 
+
 /********************
 *
 *  Global CSS  ooka-name
 *
 ********************/
-/* Si loggin */
-/* #ooka-body {
-  background-color: var(--bgbody);
-} */
-
 .ooka-hr-m {
   width: 50%;
   border: 1px dashed var(--lightredtrans80);
@@ -178,12 +172,6 @@ body {
 }
 
 /* FIRST PART */
-.container {
-  background-color: rgba(0, 0, 0, 0.4);
-  padding: 1em;
-  width: auto;
-}
-
 .index-text {
   min-height: 250px;
   display: inline;
@@ -308,9 +296,16 @@ body {
 *
 ********************/
 
-
 /********************
 *
+* Block
+*
+********************/
+#block-body {
+  width: auto;
+}
+
+/********************
 * Page Login
 * id="ooka-login"
 ********************/
@@ -323,4 +318,3 @@ body {
   color: var(--textMenu);
 }
 
-/*# sourceMappingURL=style.css.map */

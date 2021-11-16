@@ -1,46 +1,46 @@
-// Variable pour la tableau de la recherche des préférences
+// Variable pour la tableau de la recherche des prï¿½fï¿½rences
 var ventilations = [];
 
-// Paramétrage des options FuzzySort
+// Paramï¿½trage des options FuzzySort
 var searchOptions = {
-   threshold: -1000, // Pour ne pas retourner les mauvais résultats
-   limit: 20, // Nombre de résultats max
+   threshold: -1000, // Pour ne pas retourner les mauvais rï¿½sultats
+   limit: 20, // Nombre de rï¿½sultats max
    allowTypo: true, // On autorise une faute
    key: "label", // On dit sur quel clef du dico il doit chercher
 };
 
 /**
- * Optimise une chaine de caractère pour la recherche de menu
+ * Optimise une chaine de caractï¿½re pour la recherche de menu
  * Mise en minuscule et remplacement des accents courant
  *
- * @param {string} string la chaine de caractère à changer
+ * @param {string} string la chaine de caractï¿½re ï¿½ changer
  *
- * @return {string} la chaine de caractère modifiée
+ * @return {string} la chaine de caractï¿½re modifiï¿½e
  */
  function replaceForSearch(string) {
    string = string.toLowerCase();
 
-   string = string.replace(new RegExp(/[àáâãäå]/g),"a");
-   string = string.replace(new RegExp(/æ/g),"ae");
-   string = string.replace(new RegExp(/ç/g),"c");
-   string = string.replace(new RegExp(/[èéêë]/g),"e");
-   string = string.replace(new RegExp(/[ìíîï]/g),"i");
-   string = string.replace(new RegExp(/ñ/g),"n");
-   string = string.replace(new RegExp(/[òóôõö]/g),"o");
-   string = string.replace(new RegExp(/½/g),"oe");
-   string = string.replace(new RegExp(/[ùúûü]/g),"u");
-   string = string.replace(new RegExp(/[ýÿ]/g),"y");
+   string = string.replace(new RegExp(/[ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½]/g),"a");
+   string = string.replace(new RegExp(/ï¿½/g),"ae");
+   string = string.replace(new RegExp(/ï¿½/g),"c");
+   string = string.replace(new RegExp(/[ï¿½ï¿½ï¿½ï¿½]/g),"e");
+   string = string.replace(new RegExp(/[ï¿½ï¿½ï¿½ï¿½]/g),"i");
+   string = string.replace(new RegExp(/ï¿½/g),"n");
+   string = string.replace(new RegExp(/[ï¿½ï¿½ï¿½ï¿½ï¿½]/g),"o");
+   string = string.replace(new RegExp(/ï¿½/g),"oe");
+   string = string.replace(new RegExp(/[ï¿½ï¿½ï¿½ï¿½]/g),"u");
+   string = string.replace(new RegExp(/[ï¿½ï¿½]/g),"y");
 
    return string
 }
 
 function searchVentilation(search) {
-   // On enlève les anciens traitements avec la classe active et le changement de classe margin
+   // On enlï¿½ve les anciens traitements avec la classe active et le changement de classe margin
    $('.section.active').removeClass("active");
    $('.collapsible-header.active').removeClass("active");
    $('.section .no-margin').removeClass('no-margin').addClass('margin-medium');
 
-   // on enlève les accents
+   // on enlï¿½ve les accents
    var searchSansAccent = replaceForSearch(search)
 
    if (search !== '') {
@@ -49,15 +49,15 @@ function searchVentilation(search) {
       $(".module-title").hide();
       $(".section .search-content").hide();
 
-      //on passe l'icone en mode déplié
-      $("#expand-all-section").html('<i class="mdi mdi-collapse-all medium left no-margin" title="Replié" ></i>');
+      //on passe l'icone en mode dï¿½pliï¿½
+      $("#expand-all-section").html('<i class="mdi mdi-collapse-all medium left no-margin" title="Repliï¿½" ></i>');
 
       // On cherche l'input dans le tableau des menus
       var results = fuzzysort.go(searchSansAccent, ventilations, searchOptions);
 
       if (results) {
       results.forEach(function (resultItem) {
-      // Récupération du label, du search-content, de son parent et de la section
+      // Rï¿½cupï¿½ration du label, du search-content, de son parent et de la section
       var prefLabel = resultItem['obj']['item'];
       var inputFieldPref = $(prefLabel).closest(".search-content");
       var section = $(prefLabel).closest(".section");
@@ -65,7 +65,7 @@ function searchVentilation(search) {
       var parentInputField = $(inputFieldPref).closest('.row');
 
 
-      // On déplie les sections concernés
+      // On dï¿½plie les sections concernï¿½s
       section.addClass('active');
       section.children("div").addClass("active");
       parentInputField.removeClass('no-margin').addClass('margin-medium');
@@ -76,7 +76,7 @@ function searchVentilation(search) {
       });
       }
    } else {
-      // Si recherche vide, on réaffiche toutes les préférences
+      // Si recherche vide, on rï¿½affiche toutes les prï¿½fï¿½rences
       $('.section').children('div').removeClass("active");
       $(".section .search-content").show();
       $(".section .module-title").show();
@@ -84,23 +84,23 @@ function searchVentilation(search) {
       $(".module_title").show();
       $('.section').children('.collapsible-body').attr("style", "display : none;");
    
-      // Et on réinitialise le bouton "Déplier tout"
-      $("#expand-all-section").html('<i class="mdi mdi-expand-all medium left no-margin" title="Déplier toutes les préférences"></i>');
+      // Et on rï¿½initialise le bouton "Dï¿½plier tout"
+      $("#expand-all-section").html('<i class="mdi mdi-expand-all medium left no-margin" title="Dï¿½plier toutes les prï¿½fï¿½rences"></i>');
    }
 }
 
 $('#expand-all-section').on("click", function () {
    var plie;
-   // Si les sections sont toutes dépliées
+   // Si les sections sont toutes dï¿½pliï¿½es
    if ($(".section.active").length > 0) {
       plie = false;
-      $("#expand-all-section").html('<i class="mdi mdi-expand-all medium left no-margin tooltip" title="Déplier tous les modules"></i>');
+      $("#expand-all-section").html('<i class="mdi mdi-expand-all medium left no-margin tooltip" title="Dï¿½plier tous les modules"></i>');
    } else {
       plie = true;
       $("#expand-all-section").html('<i class="mdi mdi-collapse-all medium left no-margin tooltip" title="Replier tous les modules"></i>');
    };
 
-   // pour chaque section, on déplie ou replie
+   // pour chaque section, on dï¿½plie ou replie
    for (i = 0; i < $(".section").length; i++) {
       if (plie) {
          $(".modules.collapsible").collapsible('open', i);
@@ -116,7 +116,7 @@ $('#expand-all-section').on("click", function () {
       searchVentilation('');
    });
 
-   // Création d'un tableau avec toutes les ventilations
+   // Crï¿½ation d'un tableau avec toutes les ventilations
    $(".label-search").each(function () {
       ventilations.push({
             "label": replaceForSearch($(this).text()),
@@ -132,7 +132,9 @@ $('#expand-all-section').on("click", function () {
 
 
 $(document).ready(function(){
-   // Création d'un tableau avec toutes les ventilations
+   $('.sidenav').sidenav();
+
+   // Crï¿½ation d'un tableau avec toutes les ventilations
    $(".label-search").each(function () {
       ventilations.push({
          "label": replaceForSearch($(this).text()),
