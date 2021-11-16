@@ -132,7 +132,7 @@ $('#expand-all-section').on("click", function () {
 
 
 $(document).ready(function(){
-   $('.sidenav').sidenav();
+   $('.sidenav').sidenav().open();
 
    // Cr�ation d'un tableau avec toutes les ventilations
    $(".label-search").each(function () {

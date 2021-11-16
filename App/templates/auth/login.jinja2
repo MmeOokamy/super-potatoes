@@ -2,55 +2,67 @@
 {% extends "base.html" %}
 {% block title %} Connectez-vous{% endblock %}
 {% block stylesheet %}
-<link rel="stylesheet" href="{{ url_for('static', filename='css/auth.css') }}">
+
 {% endblock %}
 {% block body %}
-  <div class="form-wrapper container is-max-desktop ">
-    <div class="logo">
-      <img src="{{ url_for('static', filename='img/OokaLogo.svg') }}" alt="logo"/>
-    </div>
+   <div class="row" style="margin-top:20px;">
 
-    {% for message in get_flashed_messages() %}
-      <div class="alert alert-warning">
-        <button type="button" class="close" data-dismiss="alert">&times;</button>
-        {{ message }}
+      <div class="col s12">
+         {% for message in get_flashed_messages() %}
+         <div class="alert alert-warning">
+            <button type="button" class="close" data-dismiss="alert">&times;</button>
+            {{ message }}
+         </div>
+         {% endfor %}
       </div>
-    {% endfor %}
 
+      <div class="col">
+         <form method="POST" action="/login" class="box">
+         {{ form.csrf_token }}
 
-    <form method="POST" action="/login" class="box">
-      {{ form.csrf_token }}
-      <fieldset class="email">
-       <label class="label"> {{ form.user_email.label }}</label>
-       <span class="icon is-small is-left"><i class="fas fa-user"></i></span>
-        {{ form.user_email(placeholder='youremail@example.com') }}
-        {% if form.user_email.errors %}
-          <ul class="errors">
-            {% for error in form.user_email.errors %}
-              <li>{{ error }}</li>{% endfor %}
-          </ul>
-        {% endif %}
-      </fieldset>
+         <fieldset class="email">
+            <label class="label"> {{ form.user_email.label }}</label>
+            <span class="icon is-small is-left"><i class="fas fa-user"></i></span>
+            {{ form.user_email(placeholder='youremail@example.com') }}
+            {% if form.user_email.errors %}
+               <ul class="errors">
+               {% for error in form.user_email.errors %}
+                  <li>{{ error }}</li>
+               {% endfor %}
+               </ul>
+            {% endif %}
+         </fieldset>
 
-      <fieldset class="password"  style="margin-top:10px;">
-        <label class="label">{{ form.user_password.label }}</label>
-        <span class="icon is-small is-left"><i class="fas fa-lock"></i></span>
-        {{ form.user_password }}
-        {% if form.user_email.errors %}
-          <ul class="errors">
-            {% for error in form.user_password.errors %}
-              <li>{{ error }}</li>{% endfor %}
-          </ul>
-        {% endif %}
-      </fieldset> 
-      <div style="margin-top:10px;">
-          <i class="far fa-laugh-wink"></i>
+         <fieldset class="password"  style="margin-top:10px;">
+            <label class="label">{{ form.user_password.label }}</label>
+            <span class="icon is-small is-left"><i class="fas fa-lock"></i></span>
+            {{ form.user_password }}
+            {% if form.user_email.errors %}
+               <ul class="errors">
+               {% for error in form.user_password.errors %}
+                  <li>{{ error }}</li>
+               {% endfor %}
+               </ul>
+            {% endif %}
+         </fieldset> 
+
+               
+         <div style="margin-top:10px;">
+            <i class="far fa-laugh-wink"></i>
+         </div>
+         <div class="submit-button" style="margin-top:10px;margin-bottom:10px;">
+            {{ form.submit(class="button is-success") }}
+         </div>
+         <h6>Inscription Impossible =)</h6>
+
+         </form>
       </div>
-      <div class="submit-button" style="margin-top:10px;margin-bottom:10px;">
-         {{ form.submit(class="button is-success") }}
+      
+      <div class="col">
+         <div class="logo">
+            <img src="{{ url_for('static', filename='img/OokaLogo.svg') }}" alt="logo"/>
+         </div>
       </div>
-    <h6>Inscription Impossible =)</h6>
-
-    </form>
-  </div>
+   
+   </div>
 {% endblock %}

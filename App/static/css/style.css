@@ -71,7 +71,7 @@ body {
 
 #sidenav {
   background-color: var(--bgMenu);
-  position: sticky;
+  /* position: sticky;
   display: inline-block;
   vertical-align: top;
   max-height: 100vh;
@@ -80,7 +80,7 @@ body {
   top: 0;
   bottom: 0;
   padding: 20px;
-  margin: 0;
+  margin: 0; */
 }
 
 #sidenav .is-active {
@@ -301,9 +301,15 @@ body {
 * Block
 *
 ********************/
-#block-body {
+main {
   width: auto;
+  padding-left: 300px;
 }
+
+/* .is-active {
+  background-color: var(--textMenu);
+  color: var(--bgMenu);
+} */
 
 /********************
 * Page Login
