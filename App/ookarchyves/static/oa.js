@@ -3,4 +3,6 @@ $(document).ready(function(){
     $('.fixed-action-btn').floatingActionButton({
         direction: 'left',
     });
+
+    $('select').formSelect();
 })

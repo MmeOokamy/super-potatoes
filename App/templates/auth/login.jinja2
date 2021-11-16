@@ -1,6 +1,8 @@
 
 {% extends "base.html" %}
+
 {% block title %} Connectez-vous{% endblock %}
+
 {% block stylesheet %}
    <style>
    .prefix {
@@ -10,18 +12,19 @@
    main{
       padding-left: 0 !important;
       margin:auto;
+      margin-top: 20px;
+      max-width: 500px;
    }
 
    </style>
 {% endblock %}
+
+
 {% block body %}
-   <div class="">
-      
-   </div>
-   <div class="row box">
+   <div  class="row box">
       <div id="div-logo" class="col s12">
          <div class="logo">
-            <img src="{{ url_for('static', filename='img/OokaLogo.svg') }}" alt="logo"/>
+            <img src="{{ url_for('static', filename='img/OokaLogo.svg') }}" alt="logo" style="width: 150px; height: auto;"/>
          </div>
       </div>
 
@@ -65,10 +68,8 @@
             <i class="far fa-laugh-wink"></i>
          </div>
          <div class="submit-button" style="margin-top:10px;margin-bottom:10px;">
-            {{ form.submit(class="button is-success") }}
+            {{ form.submit(class="btn waves-effect waves-light success") }}
          </div>
-         <h6>Inscription Impossible =)</h6>
-
          </form>
       </div>
    </div>

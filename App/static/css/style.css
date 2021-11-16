@@ -83,6 +83,13 @@ header, main {
    top: 5px;
  }
 
+ main {
+   width: 100%;
+   margin: 0;
+   margin-right: 5px;
+   margin-left: 5px;
+ }
+ 
 /********************
 *  SideBar | Sidenav | nav | Menu
 ********************/
