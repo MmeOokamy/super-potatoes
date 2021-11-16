@@ -1,5 +1,5 @@
 import os
-
+from datetime import datetime as dt
 
 def get_env_variable(name):
    """[summary]
@@ -18,3 +18,10 @@ def get_env_variable(name):
    except KeyError:
       message = "Expected environment variable '{}' not set.".format(name)
       raise Exception(message)
+
+def get_year():
+   # pour le copyright
+    currentDateTime = dt.now()
+    date = currentDateTime.date()
+    year = date.strftime("%Y")
+    return year
