@@ -62,6 +62,15 @@ body {
 }
 
 
+header, main, footer {
+   padding-left: 300px;
+ }
+
+ @media only screen and (max-width : 992px) {
+   header, main, footer {
+     padding-left: 0;
+   }
+ }
 /********************
 *
 *  SideBar | Sidenav | nav | Menu
@@ -108,8 +117,6 @@ body {
 
 #sidenav .ver-bot {
   vertical-align: bottom;
-  position: absolute;
-  bottom: 0;
 }
 
 
@@ -296,20 +303,6 @@ body {
 *
 ********************/
 
-/********************
-*
-* Block
-*
-********************/
-main {
-  width: auto;
-  padding-left: 300px;
-}
-
-/* .is-active {
-  background-color: var(--textMenu);
-  color: var(--bgMenu);
-} */
 
 /********************
 * Page Login
@@ -323,4 +316,3 @@ main {
 #ooka-login label {
   color: var(--textMenu);
 }
-
