@@ -110,6 +110,9 @@ header, main, footer {
 #sidenav li {
   padding: 0.5em 0.75em;
 }
+#sidenav i .params {
+  color: var(--textMenu) !important;
+}
 
 #sidenav li > a {
   color: var(--textMenu) !important;
