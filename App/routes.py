@@ -8,11 +8,6 @@ from .ooka_tools import get_year
  # index ookamy
 @app.route("/")
 def home():
-   # pour le copyright
-   #  currentDateTime = dt.now()
-   #  date = currentDateTime.date()
-   #  y = date.strftime("%Y")
-
     # Template completement independant
     return render_template('index.html', d=get_year())
 
@@ -34,9 +29,9 @@ def logout():
 # def page_not_found(error):
 #     return render_template('error/404.html'), 404
 
-# @app.errorhandler(500)
-# def page_not_found(error):
-#     return render_template('error/500.html'), 500
+@app.errorhandler(500)
+def page_not_found(error):
+    return render_template('error/500.html'), 500
 
 @app.errorhandler(HTTPException)
 def handle_exception(e):
