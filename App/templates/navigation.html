@@ -17,5 +17,5 @@
     {% if current_user.fuul_powaa() %}
     <li><a class="item {% if menu_active == 'Params' %} is-active{% endif %}" href="{{ url_for('params.params') }}"><i class="fas fa-users-cog"></i> Parametrage</a></li>
     {% endif %}
-    <li class="ver-bot"><a class="item" href="{{ url_for('logout') }}"><i class="fas fa-sign-out-alt"></i>Log-out</a></li>
+    <li><a class="item" href="{{ url_for('logout') }}"><i class="fas fa-sign-out-alt"></i>Log-out</a></li>
 </ul>
