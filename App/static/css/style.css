@@ -26,6 +26,7 @@ Theme Name: Font Mass Effect
   --bglighttrans50:rgba(255, 255, 255,0.5);
   --bgMenu:#333031;
   --textMenu:#ffcb5a;
+  --textMenu80:#ffcb5a98;
   --bluelightvintage: #177C8B;
   --bluedarkvintage: #084A62;
   --orangered:#DC3C35;
@@ -63,7 +64,7 @@ body {
 
 
 header, main {
-   padding-left: 300px;
+   padding-left: 250px;
  }
 
  @media only screen and (max-width : 992px) {
@@ -76,16 +77,29 @@ header, main {
    margin: 0;
    width: 100%;
    min-height: 50px;
+   max-height: 50px;
 
  }
 
  header .fixed-action-btn {
    top: 5px;
  }
+ header .fixed-action-btn.direction-bottom ul {
+  top: 40px;
+ }
+
+ header input[type=text]:focus {
+  color: var(--textMenu);
+
+ }
+ header input[type=text] {
+  color: var(--textMenu80);
+ }
 
  main {
    width: 100%;
    margin: 0;
+   padding-right: 5px;
    margin-right: 5px;
    margin-left: 5px;
  }
@@ -96,6 +110,7 @@ header, main {
 
 #sidenav {
   background-color: var(--bgMenu);
+  max-width: 250px;
   /* position: sticky;
   display: inline-block;
   vertical-align: top;
@@ -179,7 +194,10 @@ header, main {
 /********************
 *  couleur
 ********************/
-
+#ooka-color {
+  background-color: var(--textMenu);
+  color: var(--bgMenu);
+}
 
 /********************
 *  PAGE INDEX
@@ -324,11 +342,15 @@ header, main {
   color: var(--textcolor);
 }
 /********************
-*
 * END OF PAGE INDEX
-*
 ********************/
 
+/********************
+* top bar header
+********************/
+header#top-bar {
+  background-color: var(--bgMenu);
+}
 
 /********************
 * Page Login
