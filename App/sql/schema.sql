@@ -61,7 +61,7 @@ CREATE TABLE ookamanager_modules (
     id SERIAL PRIMARY KEY UNIQUE,
     module_name VARCHAR(255) NOT NULL,
     module_visible SMALLINT DEFAULT 1,
-    module_color VARCHAR(10)
+    module_color VARCHAR(30)
 );
 
 CREATE TABLE ookamanager_steps (
@@ -69,7 +69,7 @@ CREATE TABLE ookamanager_steps (
     step_name VARCHAR(255) NOT NULL,
     step_order INTEGER,
     step_visible SMALLINT DEFAULT 1,
-    step_color VARCHAR(10)
+    step_color VARCHAR(30)
 );
 
 CREATE TABLE ookamanager_status (
@@ -210,7 +210,7 @@ CREATE TABLE ookamanager_modules (
     id INTEGER PRIMARY KEY AUTO_INCREMENT,
     module_name VARCHAR(255) NOT NULL,
     module_visible SMALLINT DEFAULT 1,
-    module_color VARCHAR(10)
+    module_color VARCHAR(30)
 );
 
 CREATE TABLE ookamanager_steps (
@@ -218,7 +218,7 @@ CREATE TABLE ookamanager_steps (
     step_name VARCHAR(255) NOT NULL,
     step_order INTEGER,
     step_visible SMALLINT DEFAULT 1,
-    step_color VARCHAR(10)
+    step_color VARCHAR(30)
 );
 
 CREATE TABLE ookamanager_status (

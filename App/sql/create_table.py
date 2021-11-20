@@ -70,7 +70,7 @@ def create_tables():
             id SERIAL PRIMARY KEY UNIQUE,
             module_name VARCHAR(255) NOT NULL,
             module_visible SMALLINT DEFAULT 1,
-            module_color VARCHAR(10)
+            module_color VARCHAR(30)
         )
         """,
         """
@@ -79,7 +79,7 @@ def create_tables():
             step_name VARCHAR(255) NOT NULL,
             step_order INTEGER,
             step_visible SMALLINT DEFAULT 1,
-            step_color VARCHAR(10)
+            step_color VARCHAR(30)
         )
         """,
         """
