@@ -123,7 +123,16 @@ def oa_article_by_id():
 @login_required
 def oa_d():
     art_id = request.args.get('id')
-    
-    return jsonify(
-        response="DELETE"
-    )
+    a = Articles.query.filter_by(id=art_id).one()
+    if a:
+        try:
+            db.session.delete(a)
+            db.session.commit()
+            return jsonify(
+                response='D'
+            )
+        except:
+            return jsonify(
+            response="l'article n'a pu etre delete"
+            )
+        
