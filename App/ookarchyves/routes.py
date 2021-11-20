@@ -2,7 +2,7 @@
 from flask import current_app as app
 from flask_login import current_user, login_required
 from flask import (
-    Blueprint, flash, g, redirect, render_template, request, session, url_for
+    Blueprint, flash, g, redirect, render_template, request, session, url_for, jsonify
 )
 from .. import login_manager
 from .models import db, Themes, Articles
@@ -95,4 +95,35 @@ def oa_article():
         'oa_article_form.jinja2',
         form=form,
         themes=themes
+    )
+
+@oa_bp.route('/article-view/')
+@login_required
+def oa_article_by_id():
+    art_id = request.args.get('id')
+    if art_id:
+        art_request = Articles.query.filter(Articles.id==art_id).all()
+        for ar in art_request:
+            a={}
+            a['id']=ar.id
+            a['title']=ar.article_title
+            a['create_at']=ar.article_create_at
+            a['update_at']=ar.article_update_at
+            a['body']=ar.article_body
+            a['theme_id']=ar.article_theme_id
+            a['private']=ar.article_private
+            
+    return jsonify(
+        response=art_id,
+        art_obj=a
+    )
+
+
+@oa_bp.route('/article-d/')
+@login_required
+def oa_d():
+    art_id = request.args.get('id')
+    
+    return jsonify(
+        response="DELETE"
     )

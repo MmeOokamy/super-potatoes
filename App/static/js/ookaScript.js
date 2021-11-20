@@ -48,6 +48,7 @@ function searchVentilation(search) {
       $(".section").hide();
       $(".module-title").hide();
       $(".section .search-content").hide();
+      
 
       //on passe l'icone en mode d�pli�
       $("#expand-all-section").html('<i class="mdi mdi-collapse-all medium left no-margin" title="Repli�" ></i>');
@@ -132,8 +133,13 @@ $('#expand-all-section').on("click", function () {
 
 
 $(document).ready(function(){
-   $('.sidenav').sidenav();
-   $('.tooltipped').tooltip();
+      $('.fixed-action-btn').floatingActionButton({
+         direction: 'bottom',
+      });
+      $('.modal').modal();
+
+      $('.sidenav').sidenav();
+      $('.tooltipped').tooltip();
 
    // Cr�ation d'un tableau avec toutes les ventilations
    $(".label-search").each(function () {

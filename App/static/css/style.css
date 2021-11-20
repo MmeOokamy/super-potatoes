@@ -24,6 +24,7 @@ Theme Name: Font Mass Effect
   --bglight:#ffffff;
   --bglighttrans80:rgba(255, 255, 255,0.8);
   --bglighttrans50:rgba(255, 255, 255,0.5);
+  --trans:rgba(255, 255, 255,0);
   --bgMenu:#333031;
   --textMenu:#ffcb5a;
   --textMenu80:#ffcb5a98;
@@ -363,4 +364,47 @@ header#top-bar {
 }
 #ooka-login label {
   color: var(--textMenu);
+}
+
+/********************
+*   OOKARCHYVES
+********************/
+/* card theme */
+#ookarchyves-body {
+  margin-right: 10px;
+}
+
+#ookarchyves-body .card {
+  margin: 5px;
+}
+
+#ookarchyves-body .card h5{
+  text-align: left;
+  text-decoration: underline;
+  color: var(--darkred);
+}
+
+#ookarchyves-body .card p {
+  text-align: justify;
+  font-style: italic;
+  border-bottom: var(--lightred) 1px solid;
+}
+
+#ookarchyves-body .card .card-content {
+  text-align: justify;
+}
+
+
+#ookarchyves-body .card .card-content button {
+  background-color: var(--bgMenu);
+  /* background-color: var(--trans);  */
+  color: var(--textMenu);
+  padding: 5px 10px 5px 10px;
+  border: var(--bgMenu) 1px solid;
+  border-radius: 20px;
+}
+/* modal theme */
+
+#article #article-title {
+  border-bottom: var(--lightred) 1px solid;
 }

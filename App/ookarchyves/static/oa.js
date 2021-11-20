@@ -1,8 +1,25 @@
 $(document).ready(function(){
-    console.log("coucou");
-    $('.fixed-action-btn').floatingActionButton({
-        direction: 'bottom',
-    });
+        $(".oa_article").on("click", function(){
+            let id = $(this).data('article');
+            let url = $(this).data('url');
 
-    $('select').formSelect();
+            if(id){
+                $.ajax({
+                    type: 'GET',
+                    url: url,
+                    data: 'id='+id,
+                    success: function(data){
+                        console.log(data['art_obj']);
+                        let a = data['art_obj'];
+                        $("#article-title").html(a.title)
+                        $("#article-body").html(a.body)
+                        $("#article-trash").attr('data-article-id', a.id)
+
+                        
+                    }
+
+                });
+            };
+        })
+    
 })
