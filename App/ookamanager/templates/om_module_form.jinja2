@@ -4,7 +4,7 @@
 
 {% block body %}
   <div class="form-wrapper">
-
+    <h5>Nouveau Module</h5>
     {% for message in get_flashed_messages() %}
       <div class="alert alert-warning">
         <button
@@ -40,10 +40,18 @@
     </form>
 
     <div>
-    Lister les modules existant
-    {% for m in modules %}
-        {{m.module_name}} - {{m.module_color}} - visible: {{m.module_visible}}
-    {% endfor %}
+      <h5>Modules existant</h5>
+      <div class="row">
+        {% for m in modules %}
+          <div class="col s4">
+          <div class="card {{m.module_color}}">
+            {{m.module_name}} - {{m.module_color}} - visible: {{m.module_visible}}
+
+          </div>
+
+          </div>
+          {% endfor %}
+      </div>
     </div>
 </div>
 {% endblock %}

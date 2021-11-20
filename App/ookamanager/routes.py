@@ -19,7 +19,6 @@ NAME_MENU= 'Ookamanager'
 @om_bp.route('/')
 @login_required
 def om_index():
-    
     projects = Projects.query.all()
     return render_template('om_i.html', menu_active=NAME_MENU,  projects=projects)
 
@@ -48,7 +47,7 @@ def om_project():
         menu_active=NAME_MENU
     )
 
-@om_bp.route('/modules', methods=['GET', 'POST'])
+@om_bp.route('/module', methods=['GET', 'POST'])
 @login_required
 def om_module():
     form = ModuleForm()
@@ -62,11 +61,11 @@ def om_module():
             )
             db.session.add(m)
             db.session.commit()  # Create new theme
-            return redirect(url_for('ookamanager.om_index'))
+            return redirect(url_for('ookamanager.om_module'))
         flash('Ce module existe déjà')
     return render_template(
         'om_module_form.jinja2',
+        menu_active=NAME_MENU,
         form=form,
-        modules=modules,
-        menu_active=NAME_MENU
+        modules=modules
     )

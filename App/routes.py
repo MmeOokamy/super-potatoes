@@ -14,6 +14,7 @@ def home():
 
 # liste des modules
 @app.route("/modules")
+@login_required
 def module():
     return render_template('modules.html', menu_active='Modules')
 
