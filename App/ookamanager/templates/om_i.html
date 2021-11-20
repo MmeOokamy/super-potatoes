@@ -2,8 +2,39 @@
 
 {% block title %}Main Ookamanager{% endblock %}
 {% block topbar %}
-  {% include 'navbar.html' %}
+<header id="top-bar">
+  <div class="fixed-action-btn">
+    <a class="btn-floating btn">
+      <i id="ooka-color" class="fas fa-plus"></i>
+    </a>
+    <ul>
+      <li><a class="btn-floating red" title="Ajouter un project" href="{{url_for('ookamanager.om_project')}}">
+        <i class="fas fa-folder-plus"></i>
+      </a></li>
+      <li><a class="btn-floating red" title="Ajouter un Module" href="{{url_for('ookamanager.om_module')}}">
+        <i class="fas fa-folder-plus"></i>
+      </a></li>
+    </ul>
+  </div>
+</header>
 {% endblock %}
 {% block body %}
-ilsejghiukzhrgioj zhgjiohz giojhzrogi hzrg
+
+<!-- Afficher le tableau des projets -->
+<div id="ookamanager-body" class="row">
+  {% for p in projects %}
+      <div class="card col s12" >    
+              <h5>{{p.project_name}}</h5>
+              <p> {{p.project_description}}</p>
+{{p.id}}
+        <div class="card-content">
+          Faire le resumer des colonnes des conteurs de tache et compter le nb de jour avant la deatline
+        </div>
+      </div>
+  {% endfor %}
+</div>
+
+
+
+
 {% endblock %}

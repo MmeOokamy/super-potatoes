@@ -408,3 +408,41 @@ header#top-bar {
 #article #article-title {
   border-bottom: var(--lightred) 1px solid;
 }
+
+/********************
+*   OOKAMANAGER
+********************/
+/* card theme */
+#ookamanager-body {
+  margin-right: 10px;
+}
+
+#ookamanager-body .card {
+  margin: 5px;
+}
+
+#ookamanager-body .card h5{
+  text-align: left;
+  text-decoration: underline;
+  color: var(--darkred);
+}
+
+#ookamanager-body .card p {
+  text-align: justify;
+  font-style: italic;
+  border-bottom: var(--lightred) 1px solid;
+}
+
+#ookamanager-body .card .card-content {
+  text-align: justify;
+}
+
+
+#ookamanager-body .card .card-content button {
+  background-color: var(--bgMenu);
+  /* background-color: var(--trans);  */
+  color: var(--textMenu);
+  padding: 5px 10px 5px 10px;
+  border: var(--bgMenu) 1px solid;
+  border-radius: 20px;
+}

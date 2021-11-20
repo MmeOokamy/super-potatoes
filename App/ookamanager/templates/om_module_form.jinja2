@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+
+{% block title %} Ajouter un Module{% endblock %}
+
+{% block body %}
+  <div class="form-wrapper">
+
+    {% for message in get_flashed_messages() %}
+      <div class="alert alert-warning">
+        <button
+          type="button"
+          class="close"
+          data-dismiss="alert">
+          x
+        </button>
+        {{ message }}
+      </div>
+    {% endfor %}
+
+    <form method="POST" action="module">
+    {{ form.csrf_token }}
+      <fieldset class="name">
+        {{ form.module_name.label }}
+        {{ form.module_name(placeholder='Setting') }}
+        {% if form.module_name.errors %}
+          <ul class="errors">
+            {% for error in form.module_name.errors %}
+              <li>{{ error }}</li>{% endfor %}
+          </ul>
+        {% endif %}
+      </fieldset>
+       <fieldset class="couleur">
+        {{ form.module_color.label }}
+        {{ form.module_color}}
+      </fieldset>
+    
+        <div class="submit-button" style="margin-top:10px;">
+        {{ form.submit(class="button is-success") }}
+        </div>
+    </form>
+
+    <div>
+    Lister les modules existant
+    {% for m in modules %}
+        {{m.module_name}} - {{m.module_color}} - visible: {{m.module_visible}}
+    {% endfor %}
+    </div>
+</div>
+{% endblock %}

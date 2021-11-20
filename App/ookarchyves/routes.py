@@ -15,10 +15,11 @@ oa_bp = Blueprint(
     static_folder='static'
 )
 
+NAME_MENU= 'Ookarchyves'
+
 @oa_bp.route('/')
 @login_required
 def oa_index():
-    module_name = 'Ookarchyves'
     
     c_theme = Themes.query.count()
     c_article = Articles.query.count()
@@ -42,7 +43,7 @@ def oa_index():
 
     return render_template(
         'oa_i.html', 
-        menu_active=module_name,
+        menu_active=NAME_MENU,
         themes=menu,
         c_theme = Themes.query.count(),
         c_article = Articles.query.count()
@@ -67,6 +68,7 @@ def oa_theme():
         flash('Ce theme existe déjà')
     return render_template(
         'oa_theme_form.jinja2',
+        menu_active=NAME_MENU,
         form=form
     )
 
@@ -93,6 +95,7 @@ def oa_article():
         flash('Cette article existe déjà')
     return render_template(
         'oa_article_form.jinja2',
+        menu_active=NAME_MENU,
         form=form,
         themes=themes
     )

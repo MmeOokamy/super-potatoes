@@ -5,15 +5,68 @@ from flask import (
 )
 
 from .. import login_manager
-# from moc.db import get_db
+from .models import db, Projects, Modules
+from .forms import ProjectForm, ModuleForm
+
 
 om_bp = Blueprint('ookamanager', __name__,
     url_prefix='/ookamanager',
     template_folder='templates'
 )
 
+NAME_MENU= 'Ookamanager'
+
 @om_bp.route('/')
 @login_required
 def om_index():
-    module_name = 'Ookamanager'
-    return render_template('om_i.html', menu_active=module_name)
+    
+    projects = Projects.query.all()
+    return render_template('om_i.html', menu_active=NAME_MENU,  projects=projects)
+
+
+@om_bp.route('/projet', methods=['GET', 'POST'])
+@login_required
+def om_project():
+    form = ProjectForm()
+    if form.validate_on_submit():
+        existing_theme = Projects.query.filter_by(project_name=form.project_name.data).first()
+        if existing_theme is None:
+            project = Projects(
+                project_name=form.project_name.data,
+                project_description=form.project_description.data,
+                project_user_id= current_user.id,
+                project_estimation= form.project_estimation.data,
+                project_deadline= form.project_deadline.data,
+            )
+            db.session.add(project)
+            db.session.commit()  # Create new theme
+            return redirect(url_for('ookamanager.om_index'))
+        flash('Ce projet existe déjà')
+    return render_template(
+        'om_project_form.jinja2',
+        form=form,
+        menu_active=NAME_MENU
+    )
+
+@om_bp.route('/modules', methods=['GET', 'POST'])
+@login_required
+def om_module():
+    form = ModuleForm()
+    modules = Modules.query.all()
+    if form.validate_on_submit():
+        existing_theme = Modules.query.filter_by(module_name=form.module_name.data).first()
+        if existing_theme is None:
+            m = Modules(
+                module_name=form.module_name.data,
+                module_color=form.module_color.data,
+            )
+            db.session.add(m)
+            db.session.commit()  # Create new theme
+            return redirect(url_for('ookamanager.om_index'))
+        flash('Ce module existe déjà')
+    return render_template(
+        'om_module_form.jinja2',
+        form=form,
+        modules=modules,
+        menu_active=NAME_MENU
+    )
