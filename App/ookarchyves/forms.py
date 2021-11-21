@@ -11,7 +11,6 @@ class ThemeForm(FlaskForm):
     )
     theme_description = TextAreaField(
         'Description'
- 
     )
     theme_private = RadioField(
         'Visibilité',

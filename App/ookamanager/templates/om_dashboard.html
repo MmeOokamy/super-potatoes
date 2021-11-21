@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block title %}Main Ookamanager{% endblock %}
+{% block topbar %}
+<header id="top-bar">
+   <h6>{{dashboard}}</h6>
+   <div class="fixed-action-btn">
+      <a class="btn-floating btn">
+        <i id="ooka-color" class="fas fa-plus"></i>
+      </a>
+      <ul>
+        <li><a class="btn-floating red" title="Ajouter une taches" href="{{url_for('ookamanager.om_task')}}">
+         <i class="fas fa-thumbtack"></i>
+        </a></li>
+
+      </ul>
+    </div>
+</header>
+{% endblock %}
+{% block body %}
+   
+{% endblock %}

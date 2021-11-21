@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block title %} Ajouter une action{% endblock %}
+
+{% block body %}
+  <div class="form-wrapper">
+
+    {% for message in get_flashed_messages() %}
+      <div class="alert alert-warning">
+        <button
+          type="button"
+          class="close"
+          data-dismiss="alert">
+          x
+        </button>
+        {{ message }}
+      </div>
+    {% endfor %}
+
+    <form method="POST" action="projet">
+    {{ form.csrf_token }}
+      
+    <div class="submit-button" style="margin-top:10px;">
+      {{ form.submit(class="button is-success") }}
+    </div>
+
+    </form>
+
+{% endblock %}

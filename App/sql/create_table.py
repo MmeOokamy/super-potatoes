@@ -106,7 +106,7 @@ def create_tables():
         CREATE TABLE ookamanager_tasks (
             id SERIAL PRIMARY KEY UNIQUE,
             task_title VARCHAR(255) NOT NULL,
-            task_body VARCHAR(255) NOT NULL,
+            task_body TEXT,
             task_order INTEGER,
             task_project_id INTEGER,
             task_module INTEGER,

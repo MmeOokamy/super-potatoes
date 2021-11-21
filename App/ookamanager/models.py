@@ -61,10 +61,11 @@ class Modules(db.Model):
         db.Integer,
         default = 1,
     )
-    module_color =db.Column(
+    module_color = db.Column(
         db.String(30),
         nullable=True,
     )
+
 
 class Steps(db.Model):
     __tablename__ = 'ookamanager_steps'
@@ -84,11 +85,12 @@ class Steps(db.Model):
         db.Integer,
         default = 1,
     )
-    steps_color =db.Column(
+    steps_color = db.Column(
         db.String(30),
         nullable=True,
     )
-    
+
+
 class Status(db.Model):
     __tablename__ = 'ookamanager_status'
     id = db.Column(
@@ -106,4 +108,47 @@ class Status(db.Model):
     status_visible = db.Column(
         db.Integer,
         default = 1,
+    )
+
+
+class Tasks(db.Model):
+    __tablename__ = 'ookamanager_tasks'
+    id = db.Column(
+        db.Integer,
+        primary_key=True
+    )
+    task_title  = db.Column(
+        db.String(255),
+        nullable=False,
+    )
+    task_body  = db.Column(
+        db.Text,
+    )
+    task_order = db.Column(
+        db.Integer,
+    ) 
+    task_project_id = db.Column(
+        db.Integer,
+    )
+    task_module = db.Column(
+        db.Integer,
+    )
+    task_deadline = db.Column(
+        db.String(80),
+        nullable=True,
+    )
+    task_step_id = db.Column(
+        db.Integer,
+    )
+    task_user_id= db.Column(
+        db.Integer,
+        default = 1,
+    )
+    task_create_at = db.Column(
+        db.DateTime,
+        nullable=True,
+    )
+    task_update_at = db.Column(
+        db.DateTime,
+        nullable=True,
     )

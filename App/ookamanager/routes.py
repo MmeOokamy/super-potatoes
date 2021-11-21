@@ -47,6 +47,7 @@ def om_project():
         menu_active=NAME_MENU
     )
 
+
 @om_bp.route('/module', methods=['GET', 'POST'])
 @login_required
 def om_module():
@@ -69,3 +70,25 @@ def om_module():
         form=form,
         modules=modules
     )
+
+
+@om_bp.route('/dashboard/<dashboard_id>', methods=['GET', 'POST'])
+@login_required
+def om_dashboard(dashboard_id):
+    dashboard = Projects.query.filter_by(id=dashboard_id).first()
+    return render_template(
+        'om_dashboard.html',
+        dashboard = dashboard,
+        menu_active=NAME_MENU
+    )
+
+@om_bp.route('/dashboard/<dashboard_id>/todo', methods=['GET', 'POST'])
+@login_required
+def om_add_todo(dashboard_id):
+    dashboard = Projects.query.filter_by(id=dashboard_id).first()
+    return render_template(
+        'om_dashboard.html',
+        dashboard = dashboard,
+        menu_active=NAME_MENU
+    )
+

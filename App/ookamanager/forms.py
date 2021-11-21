@@ -30,3 +30,33 @@ class ModuleForm(FlaskForm):
        'Couleur Materialize : https://materializecss.com/color.html'
    )
     submit = SubmitField('Submit')
+
+
+class TaskForm(FlaskForm):
+    task_title = StringField(
+        'Nom du Module',
+        [DataRequired()]
+    )
+    task_body = TextAreaField(
+       'description'
+    )
+    task_order  = SelectField(
+        'Thematique'
+    )
+    task_project_id = IntegerField(
+        'projet'
+    )
+    task_module  = SelectField(
+        'Thematique'
+    )
+    task_deadline = DateField(
+        'Deadline',
+    )
+    task_step_id = IntegerField(
+        'projet'
+    )
+    task_user_id = IntegerField(
+        'projet'
+    )
+
+    submit = SubmitField('Submit')

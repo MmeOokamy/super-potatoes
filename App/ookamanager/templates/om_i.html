@@ -26,6 +26,8 @@
       <div class="card col s12" >    
               <h5>{{p.project_name}}</h5>
               <p> {{p.project_description}}</p>
+              <a href="{{url_for('ookamanager.om_dashboard', dashboard_id=p.id)}}"><i class="fas fa-angle-double-right"></i></a>
+             
 {{p.id}}
         <div class="card-content">
           Faire le resumer des colonnes des conteurs de tache et compter le nb de jour avant la deatline
