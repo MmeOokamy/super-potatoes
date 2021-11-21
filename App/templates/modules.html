@@ -1,6 +1,12 @@
 {% extends 'base.html' %}
 {% block title %}Nav !bar teste{% endblock %}
-{% block stylesheet %}{% endblock %}
+{% block stylesheet %}
+  <style>
+    main {
+      padding-right: 20px;
+    }
+  </style>
+{% endblock %}
 
 {% block topbar %}
 <header id="top-bar">
@@ -11,6 +17,24 @@
 
 {% block body %}
 
+<table id="params-table" class="table">
+   <thead>
+     <tr>
+       <th>N°</th>
+       <th>News</th>
+       <th>Module</th>
+       <th>Date</th>
+     </tr>
+   </thead>
+   <tbody>
+       <tr>
+         <th>01</th>
+         <td>Mise en ligne du site et debut du developpement des modules ookarchyves et ookamanager</td>
+         <td>ookamanager, ookarchyves, super potatoes</td>
+         <td>21/11/2021</td>
+       </tr>
+   </tbody>
+ </table>
 
 {% endblock %}
 
