@@ -1,10 +1,10 @@
 # Super-Potatoes:
 
-   Application qui a pour but de monté en compétence sur Python, Flask et JavaScript.
+   Application qui a pour but de monter en compétences sur Python, Flask et JavaScript.
 
 *****************************************************
 Good News! le site est en prod xD  => ***https://mme.ookamy.fr/*** 
- * Il a fallut que je modifi la base de donnée qui etait pour postgreSQL en MySQL friendly xD 
+ * Il a fallu que je modifie la base de données. De postgreSQL vers MySQL friendly xD 
 *****************************************************
 ## Languages
    * Python 3.8
@@ -13,7 +13,7 @@ Good News! le site est en prod xD  => ***https://mme.ookamy.fr/***
    * Javascript , Jquery (peut-être rajouter une lib JS)
 
 ## Modules
-*La construction sera par module. Il sera important d'avoir chaque modules independants des un des autres afin de pouvoir ajouter / modifier / supprimer facilement des modules sans interferer avec le core de l'application*
+*La construction sera par module. Il sera important d'avoir chaque module indépendant des uns des autres afin de pouvoir ajouter/modifier / supprimer facilement des modules sans interférer avec le core de l'application.*
 Pour le moment l'application a comme core ou module principale/moteur legend schema (Core)
  > pour lier les modules il faudra rajouter dans le fichier App/__init__.py
  > et aussi rajouter dans le fichier routes.py a la racine du dossier du module
@@ -36,7 +36,7 @@ om_bp = Blueprint('ookamanager', __name__,
 
  ```
 ## Application Schema 
-   *les fichiers qui ne sont pas dans cette arborescence ne sont pas "utiles"*
+   *les fichiers qui ne sont pas dans cette arborescence ne sont pas "utiliser"*
    
 ```
  . Super-Potatoes
