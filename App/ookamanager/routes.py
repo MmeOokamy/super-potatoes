@@ -5,7 +5,7 @@ from flask import (
 )
 
 from .. import login_manager
-from .models import db, Projects, Modules
+from .models import db, Projects, Modules, Steps, Status
 from .forms import ProjectForm, ModuleForm
 
 
@@ -19,7 +19,7 @@ NAME_MENU= 'Ookamanager'
 @om_bp.route('/')
 @login_required
 def om_index():
-    projects = Projects.query.all()
+    projects = Projects.query.filter_by(project_user_id=current_user.id).all()
     return render_template('om_i.html', menu_active=NAME_MENU,  projects=projects)
 
 
@@ -75,20 +75,35 @@ def om_module():
 @om_bp.route('/dashboard/<dashboard_id>', methods=['GET', 'POST'])
 @login_required
 def om_dashboard(dashboard_id):
+    # on va chercher le projet
     dashboard = Projects.query.filter_by(id=dashboard_id).first()
-    return render_template(
-        'om_dashboard.html',
-        dashboard = dashboard,
-        menu_active=NAME_MENU
-    )
+    # Les colonnes steps
+    steps = Steps.query.all()
+    
+    # Si le projet exist on accede au dashboard
+    if dashboard is not None and dashboard.project_user_id == current_user.id:
+        return render_template(
+            'om_dashboard.html',
+            dashboard = dashboard,
+            steps = steps,
+            menu_active=NAME_MENU
+        )
+    else:
+        # redirection si on entre une numero d'id inconnue
+        return redirect(url_for('ookamanager.om_index'))
+    
 
 @om_bp.route('/dashboard/<dashboard_id>/todo', methods=['GET', 'POST'])
 @login_required
 def om_add_todo(dashboard_id):
     dashboard = Projects.query.filter_by(id=dashboard_id).first()
+    if dashboard is not None:
+        return render_template(
+            'om_dashboard.html',
+            dashboard = dashboard,
+            menu_active=NAME_MENU
+        )
     return render_template(
-        'om_dashboard.html',
-        dashboard = dashboard,
-        menu_active=NAME_MENU
+            'om_dashboard.html',
+            menu_active=NAME_MENU
     )
-

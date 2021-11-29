@@ -1,5 +1,7 @@
 import os
+import jinja2
 from datetime import datetime as dt
+
 
 def get_env_variable(name):
    """[summary]
@@ -25,3 +27,4 @@ def get_year():
     date = currentDateTime.date()
     year = date.strftime("%Y")
     return year
+
