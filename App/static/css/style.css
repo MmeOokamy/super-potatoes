@@ -352,6 +352,9 @@ header, main {
 header#top-bar {
   background-color: var(--bgMenu);
 }
+header#top-bar h5 {
+ color: var(--textMenu);
+}
 
 /********************
 * Page Login
@@ -412,7 +415,7 @@ header#top-bar {
 /********************
 *   OOKAMANAGER
 ********************/
-/* card theme */
+/* card theme om_i*/
 #ookamanager-body {
   margin-right: 10px;
 }
@@ -445,4 +448,12 @@ header#top-bar {
   padding: 5px 10px 5px 10px;
   border: var(--bgMenu) 1px solid;
   border-radius: 20px;
+}
+
+#ookamanager-dashboard .step-colonne {
+  padding: 2px;
+
+}
+#ookamanager-dashboard .step-body{
+  margin: 5px;
 }
