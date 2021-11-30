@@ -16,14 +16,38 @@
         {{ message }}
       </div>
     {% endfor %}
+<div class="row" >
+    <form method="POST" action="task">
+      {{ form.csrf_token }}
+      <div class="col s6 m6">
+        <fieldset class="title">
+          {{ form.task_title.label }}
+          {{ form.task_title }}
+        </fieldset>
+        <fieldset class="body">
+          {{ form.task_body.label }}
+          {{ form.task_body(class="textarea ", rows="4" ) }}
+        </fieldset>
+        <div class="row">
+          <div class="col s6">
+            <fieldset class="module select">
+              {{ form.task_module.label }}
+              {{ form.task_module }}
+            </fieldset>
+          </div>
+          <div class="col s6">
+            <fieldset class="deadline">
+              {{ form.task_deadline.label }}
+              {{ form.task_deadline(type='date') }}
+            </fieldset>
+          </div>
+        </div>
 
-    <form method="POST" action="projet">
-    {{ form.csrf_token }}
-      
-    <div class="submit-button" style="margin-top:10px;">
-      {{ form.submit(class="button is-success") }}
-    </div>
-
+        <div class="submit-button" style="margin-top:10px;">
+          {{ form.submit(class="button is-success") }}
+        </div>
+      </div>
     </form>
+  </div>
 
 {% endblock %}
