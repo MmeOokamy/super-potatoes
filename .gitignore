@@ -1,4 +1,5 @@
 menv/
+venv/
 App/sql/config_db.ini
 __pycache__/
 .env
