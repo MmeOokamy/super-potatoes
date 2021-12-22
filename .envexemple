@@ -1,0 +1,9 @@
+FLASK_APP=App
+FLASK_ENV=development
+FLASK_SK=pleindecaracterepourfeireunecle
+DEBUG=True
+
+SQLALCHEMY_DATABASE_URI='postgresql://username:password@localhost/dbname'
+
+STATIC_FOLDER = 'App/static'
+TEMPLATES_FOLDER = 'App/templates'
