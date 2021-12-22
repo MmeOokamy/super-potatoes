@@ -15,7 +15,7 @@ def params():
     pref = Params.query.all()
     users = User.query.all()
     module_name = 'Params'
-    return render_template('setting/setting.html', menu_active=module_name, pref=pref)
+    return render_template('setting/setting.html', menu_active=module_name, pref=pref, users=users)
 
 
 

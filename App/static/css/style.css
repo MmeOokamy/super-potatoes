@@ -49,7 +49,7 @@ body {
 }
 
 /* Affichage de Liara en bg si on est sur la page index| accueil */
-#index-page{
+#index-page {
   background-image: url("../img/background_liara_code.png");
   background-repeat: no-repeat;
   background-attachment: fixed;
@@ -111,7 +111,7 @@ header, main {
 
 #sidenav {
   background-color: var(--bgMenu);
-  max-width: 250px;
+  max-width: 200px;
   /* position: sticky;
   display: inline-block;
   vertical-align: top;
