@@ -9,9 +9,9 @@
             </p>
         </div>
     </li>
-    <li><a class=" {% if menu_active == 'News' %} is-active{% endif %}" href="{{ url_for('module') }}"><i class="far fa-folder"></i> News</a></li>
+    <!-- <li><a class=" {% if menu_active == 'News' %} is-active{% endif %}" href="{{ url_for('news') }}"><i class="far fa-folder"></i> News</a></li> -->
     <li><a class=" {% if menu_active == 'Ookarchyves' %} is-active{% endif %}" href="{{ url_for('ookarchyves.oa_index') }}"><i class="fas fa-cat"></i> Ookarchyves</a></li>
-    <li><a class=" {% if menu_active == 'Ookamanager' %} is-active{% endif %}" href="{{ url_for('ookamanager.om_index') }}"><i class="fas fa-cat"></i> Ookamanager</a></li>
+    <!-- <li><a class=" {% if menu_active == 'Ookamanager' %} is-active{% endif %}" href="{{ url_for('ookamanager.om_index') }}"><i class="fas fa-cat"></i> Ookamanager</a></li> -->
     {% if current_user.fuul_powaa() %}
     <li><a class=" {% if menu_active == 'Params' %} is-active{% endif %}" href="{{ url_for('params.params') }}"><i class="fas fa-users-cog params"></i></a></li>
     {% endif %}

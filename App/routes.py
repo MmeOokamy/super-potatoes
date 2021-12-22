@@ -14,8 +14,8 @@ def home():
 # liste des modules
 @app.route("/news")
 @login_required
-def module():
-    return render_template('modules.html', menu_active='News')
+def news():
+    return render_template('news.html', menu_active='News')
 
 
 @app.route("/logout")
