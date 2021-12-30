@@ -120,8 +120,28 @@ def oa_article_by_id():
         response=art_id,
         art_obj=a
     )
+# Update de l'article
+@oa_bp.route('/article-up/')
+@login_required
+def oa_up():
+    art_id = request.args.get('id')
+    a = Articles.query.filter_by(id=art_id).one()
+    form = ArticleForm()
+    themes = Themes.query.all()
+    form.article_theme_id.choices = [(t.id, t.theme_title) for t in Themes.query.order_by('theme_title')]
+        
+    return render_template(
+        'oa_article_form.jinja2',
+        menu_active=NAME_MENU,
+        form=form,
+        themes=themes,
+        art = a
+    )
+
+    
 
 
+# Suppression de l'article en ajax
 @oa_bp.route('/article-d/')
 @login_required
 def oa_d():

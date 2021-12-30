@@ -11,7 +11,7 @@ def home():
     return render_template('index.html', d=get_year())
 
 
-# liste des modules
+# liste des nouveautés(faut-il faire une table pour? je pense oui.)
 @app.route("/news")
 @login_required
 def news():

@@ -1,6 +1,5 @@
--- SQL
+-- MYSQL
 -- Purge des tables
-
 DROP TABLE IF EXISTS logs;
 DROP TABLE IF EXISTS settings;
 DROP TABLE IF EXISTS users;
@@ -119,7 +118,6 @@ CREATE TABLE ookarchyves_themes (
     theme_description TEXT,
     theme_private SMALLINT DEFAULT 1
 );
-
 
 CREATE TABLE ookarchyves_articles (
     id INTEGER PRIMARY KEY AUTO_INCREMENT,
