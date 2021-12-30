@@ -38,7 +38,7 @@ def om_project():
                 project_deadline= form.project_deadline.data,
             )
             db.session.add(project)
-            db.session.commit()  # Create new theme
+            db.session.commit()  # Create new project
             return redirect(url_for('ookamanager.om_index'))
         flash('Ce projet existe déjà')
     return render_template(

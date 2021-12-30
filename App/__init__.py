@@ -22,6 +22,7 @@ def create_app(test_config=None):
     login_manager.init_app(app)
 
     with app.app_context():
+        # Import all modules her
         from . import routes
     
         from .authentication import auth

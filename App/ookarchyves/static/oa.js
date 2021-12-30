@@ -1,4 +1,7 @@
 $(document).ready(function(){
+
+        $('select').formSelect();
+    
         $(".oa_article").on("click", function(){
             let id = $(this).data('article');
             let url = $(this).data('url');

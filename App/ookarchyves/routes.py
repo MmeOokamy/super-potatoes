@@ -26,7 +26,7 @@ def oa_index():
     themes = Themes.query.all()
     articles = Articles.query.all()
 
-    #Init list de dict
+    #Init une list pour y inserer les dict des themes
     menu = []
 
     # crée l'object theme avec les articles

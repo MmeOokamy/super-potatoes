@@ -32,13 +32,19 @@
         {{ form.theme_description.label }}
         {{ form.theme_description(class="textarea is-info", rows="10" ) }}
       </fieldset>
-       <fieldset class="private">
-       <label>
-        {{ form.theme_private }}
-        {{ form.theme_private.label }}
-       
-       </label>
-      </fieldset>
+      <div class="row">
+        {% for s in form.theme_private %}
+        <div class="col s3">
+          <p>
+              {{ s(class="with-gap") }}
+              <span>{{ s.label }}</span>
+          </p>
+        </div>
+        {% endfor %}
+
+      </div>
+      
+
 
     <div class="submit-button" style="margin-top:10px;">
       {{ form.submit(class="button is-success") }}
@@ -46,4 +52,7 @@
 
     </form>
 
+{% endblock %}
+{% block js %}
+<script src="{{url_for('ookarchyves.static', filename='oa.js')}}"></script>
 {% endblock %}
