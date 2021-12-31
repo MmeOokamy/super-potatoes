@@ -21,12 +21,12 @@
             Archives
         </a>
     </li>
-    <li class="user-view row" >
+    <!-- <li class="user-view row" >
         <a class=" {% if menu_active == 'Ookamanager' %} is-active{% endif %}" href="{{ url_for('ookamanager.om_index') }}">
             <i class="fas fa-cat"></i>
             Kanban
         </a>
-    </li>
+    </li> -->
     {% if current_user.fuul_powaa() %} 
     <li class="user-view row" >
         <a class=" {% if menu_active == 'Params' %} is-active{% endif %}" href="{{ url_for('params.params') }}">

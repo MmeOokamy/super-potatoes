@@ -31,7 +31,7 @@ def oa_index():
 
     # crée l'object theme avec les articles
     for theme in themes:
-        t={}
+        t= {}
         t['id']= theme.id
         t['nom']= theme.theme_title
         t['description']= theme.theme_description
@@ -125,7 +125,6 @@ def oa_article_by_id():
 @oa_bp.route('/edit/<int:id>', methods=['GET', 'POST'])
 @login_required
 def oa_up(id):
-    # art_id = request.args.get(id)
     a = Articles.query.get_or_404(id)
     form = ArticleForm(obj=a)
     form.article_theme_id.choices = [(t.id, t.theme_title) for t in Themes.query.order_by('theme_title')]
@@ -141,14 +140,13 @@ def oa_up(id):
     # init form with data
     form.article_title.data = a.article_title
     form.article_body.data = a.article_body
-    form.article_theme_id.data = a.article_theme_id
-    form.article_private.data = a.article_private
+    form.article_theme_id.default = a.article_theme_id
+    form.article_private.default = a.article_private
         
     return render_template(
         'oa_edit_article_form.jinja2',
         menu_active=NAME_MENU,
-        form=form,
-        art = a
+        form=form
     )
 
     
@@ -169,6 +167,6 @@ def oa_d():
             )
         except:
             return jsonify(
-            response="l'article n'a pu etre delete"
+                response="l'article n'a pu etre delete"
             )
         

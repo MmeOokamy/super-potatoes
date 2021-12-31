@@ -17,4 +17,4 @@ VALUES (0, 'visitor', 'sha256$qddhRJjpInPFvtgB$95b2af47611b6fb043ba13bfa38ed9d01
 
 -- theme
 INSERT INTO ookarchyves_themes (theme_title, theme_description, theme_private) 
-values ('SQL', 'sql, console postgresql', 0),('Linux', 'Manjaro, console, install', 0);
+values ('Nouveaute', 'les dernieres nouveaute sur le site /!\ cela peut etre affiche sur le page index', 0),('SQL', 'sql, console postgresql', 0),('Linux', 'Manjaro, console, install', 0);
