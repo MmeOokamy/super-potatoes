@@ -76,7 +76,6 @@ def oa_theme():
 @login_required
 def oa_article():
     form = ArticleForm()
-    themes = Themes.query.all()
     # Pour remplir le selectfield \o/ avec la liste de thème
     form.article_theme_id.choices = [(t.id, t.theme_title) for t in Themes.query.order_by('theme_title')]
     if form.validate_on_submit():
@@ -96,10 +95,10 @@ def oa_article():
     return render_template(
         'oa_article_form.jinja2',
         menu_active=NAME_MENU,
-        form=form,
-        themes=themes
+        form=form
     )
 
+# Read with ajax method
 @oa_bp.route('/article-view/')
 @login_required
 def oa_article_by_id():
@@ -120,33 +119,47 @@ def oa_article_by_id():
         response=art_id,
         art_obj=a
     )
+
+
 # Update de l'article
-@oa_bp.route('/article-up/')
+@oa_bp.route('/edit/<int:id>', methods=['GET', 'POST'])
 @login_required
-def oa_up():
-    art_id = request.args.get('id')
-    a = Articles.query.filter_by(id=art_id).one()
-    form = ArticleForm()
-    themes = Themes.query.all()
+def oa_up(id):
+    # art_id = request.args.get(id)
+    a = Articles.query.get_or_404(id)
+    form = ArticleForm(obj=a)
     form.article_theme_id.choices = [(t.id, t.theme_title) for t in Themes.query.order_by('theme_title')]
+
+    if form.validate_on_submit():
+        a.article_title=form.article_title.data
+        a.article_body=form.article_body.data
+        a.article_theme_id=form.article_theme_id.data
+        a.article_private=form.article_private.data
+        db.session.commit()
+        return redirect(url_for('ookarchyves.oa_index'))
+
+    # init form with data
+    form.article_title.data = a.article_title
+    form.article_body.data = a.article_body
+    form.article_theme_id.data = a.article_theme_id
+    form.article_private.data = a.article_private
         
     return render_template(
-        'oa_article_form.jinja2',
+        'oa_edit_article_form.jinja2',
         menu_active=NAME_MENU,
         form=form,
-        themes=themes,
         art = a
     )
 
     
 
 
-# Suppression de l'article en ajax
+# Delete aricle with ajax method /!\ without agree alerte 
 @oa_bp.route('/article-d/')
 @login_required
 def oa_d():
     art_id = request.args.get('id')
-    a = Articles.query.filter_by(id=art_id).one()
+    a = Articles.query.get_or_404(art_id)
     if a:
         try:
             db.session.delete(a)

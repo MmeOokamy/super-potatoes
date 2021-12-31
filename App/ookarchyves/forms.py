@@ -33,10 +33,13 @@ class ArticleForm(FlaskForm):
         [DataRequired()]
     )
     article_theme_id = SelectField(
-        'Categorie existante'
+        'Categorie existante',
+        [DataRequired()]
     )
     article_private = RadioField(
         'Visibilité',
+        [DataRequired()],
         choices=[('0','Tout le monde'),('1','Privée')]
     )    
     submit = SubmitField('Submit')
+

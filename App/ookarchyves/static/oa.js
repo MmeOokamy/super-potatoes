@@ -16,6 +16,8 @@ $(document).ready(function(){
                         $("#article-title").html(a.title)
                         $("#article-body").html(a.body)
                         $("#article-trash").attr('data-article-id', a.id)
+                        $("#article-edit").attr('data-article-id', a.id)
+                        $("#article-edit").attr('href', '/ookarchyves/edit/' + a.id)
                         
                     }
 

@@ -32,13 +32,4 @@ CREATE TABLE users (
     user_last_login TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
 );
 
--- Module News
-CREATE TABLE news (
-    id SERIAL PRIMARY KEY UNIQUE,
-    news_title VARCHAR(255),
-    news_description TEXT,
-    news_created TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
-)
-
-
 
