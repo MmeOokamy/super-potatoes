@@ -32,6 +32,9 @@ Theme Name: Font Mass Effect
   --bluedarkvintage: #084A62;
   --orangered:#DC3C35;
   --bgbody:#DC3C35;
+  /* index third part */
+  --title:#008b8b;
+  --text:rgb(43, 41, 41);
 }
 
 body {
@@ -213,14 +216,16 @@ header, main {
 }
 
 #second {
-  min-height: 300px;
-  background-color: var(--bglight);
+  margin-top: 20px;
+  min-height: 100vh;
+  /* background-color: var(--bglight); */
 }
 
 #third {
-  min-height: 200px;
+  min-height: 100vh;
+  padding: 20px;
   color: var(--textcolor);
-  background-color: var(--bglighttrans50);
+  /* background-color: var(--bglighttrans50); */
 }
 
 /* FIRST PART */
@@ -342,6 +347,88 @@ header, main {
 .card-content p {
   color: var(--textcolor);
 }
+/* New second part for personnal cv */
+#cv-body{
+  /* width: 80%; */
+  /* min-width: 800px; */
+  margin: auto;
+  padding: 5px;
+  background-color: rgba(255, 255, 255, 0.514);
+  border-radius: 20px;
+}
+
+
+#cv-left{
+  /* background-color: rgba(255, 0, 0, 0.925); */
+  margin: auto;
+}
+
+#cv-logo {
+}
+
+/* RIGHT PART */
+#cv-right {
+  margin: auto;
+  padding: 10px;
+  min-height: 100%;
+  color: var(--text);
+}
+
+/* common class */
+
+.cv-title {
+  font-family: "mass_effect_123regular";
+  font-family: "mass_effect_123regular";
+  color: var(--title);
+  border-bottom: var(--title) solid 1px;
+  text-align: left;
+}
+
+span .span-marg-20{
+  min-width: 20px;
+}
+
+p {
+  text-align: justify;
+  
+}
+
+
+/* First lign */
+#first-lign {
+  /* text-align: left; */
+}
+
+/* Identity Column */
+#identity {
+  text-align: left;
+}
+
+#techno  i {
+  text-align: center;
+  font-size: 1.5em;
+}
+
+/* second lign */
+#second-lign {
+
+}
+
+#bio{
+
+}
+
+#like{
+
+}
+
+/* third lign */
+#third-lign {}
+#pro-needs{}
+#pro-frustation{}
+
+
+
 /********************
 * END OF PAGE INDEX
 ********************/

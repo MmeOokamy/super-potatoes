@@ -20,47 +20,15 @@
         <div id="first">
             <div class="index-text">
                 <h1 class="massEffect">Emmanuelle <span class="firstName">GOUGELET</span></h1>
-                <h2 class="index-h2 massEffect">Développeuse Junior</h2>
-                <a href="#second" class="btn-floating btn-large pulse"><i class="material-icons">favorite</i></a>
-            </div>
-        </div>
-
-        <div id="second">
-            <h2><img id="OokaLogo" class="cookies" src="{{ url_for('static', filename='img/OokaLogo.svg') }}" alt="Le Logo d'Ookamy" ></h2>
-            <div class="col s12 m12">
-                    <hr class="ooka-hr-m" >
-                </div>
-            <div class="row max-width-800">
-                <div class="col s12 m6 ">
-                    <p class="ooka-justify">
-                        Développeuse curieuse, autonome et qui a soif de savoir. J'aime tester, explorer et découvrir.
-                    </p>
-                </div>
-
-                <div class="col s12 m6">
-                    <p class="ooka-justify">
-                        Junior dans l'univers du développement, ma capacité d'adaptation est une force qui m'a permis de plonger dans divers langages de programmation.
-                    </p>
-                </div>
-
-                <div class="col s12 m12">
-                    <hr class="ooka-hr-m" >
-                </div>
-
-                <div class="col s12 m12">
-                    <p class="ooka-center ooka-txt-s20">
-                        <i class="fab fa-python"></i>
-                        <i class="fab fa-php"></i>
-                        <i class="fab fa-java"></i>
-                        <i class="fab fa-js"></i>
-                    </p>
-                </div>
+                <h2 class="index-h2 massEffect">Développeuse
+                </h2>
+                <a href="#third" class="btn-floating btn-large pulse"><i class="material-icons">favorite</i></a>
             </div>
         </div>
 
         <div id="third" class="">
-            <h2><img class="ooka-svg" src="{{ url_for('static', filename='img/programmation.svg') }}" alt=""></h2>
-            <div class="row max-width-800">
+            <!-- <h2><img class="ooka-svg" src="{{ url_for('static', filename='img/programmation.svg') }}" alt=""></h2> -->
+            <div class="row max-width-800" >
                 <div class="col s12 m4">
                     <div class="d3c1 card">
                         <div class="card-image">
@@ -135,10 +103,27 @@
                             <span class="card-title d3c2-icon"><i class="fab fa-python d3c2-icon"></i> + <i class="fas fa-pepper-hot d3c2-icon"></i></span>
                         </div>
                         <div class="card-content">
-                            <p>En Conception avec Flask et postgreSQL (MySQL pour la prod). C'est le domaine actuel! </p>
+                            <p>En Conception avec Flask et postgreSQL (MySQL pour la prod)! </p>
                         </div>
                         <div class="card-action">
                             <a class="d3c2-icon" href="https://github.com/MmeOokamy/super-potatoes">Github Repository <i class="fab fa-github d3c2-icon"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col s12 m4">
+                    <div class="d3c3 card ">
+                        <div class="card-image">
+                            <img class="activator" src="{{ url_for('static', filename='img/prototype/git.png') }}">
+                            <span class="card-title"><i class="fab fa-github d3c3-icon"></i></span>
+                        </div>
+                        <div class="card-content">
+                            <p>
+                                <a class="d3c3-icon" href="https://github.com/MmeOokamy">Mes Repository publics</a>
+                            </p>
+                        </div>
+                        <div class="card-action">
+                            <a class="d3c3-icon" href="https://github.com/MmeOokamy"></i><i class="fab fa-github"></i></a>
                         </div>
                     </div>
                 </div>
@@ -160,6 +145,97 @@
                 </div>
             </div>
         </div>
+
+        <div id="second">
+            <div id="cv-body" class="row container">
+                <!-- PARTIE GAUCHE -->
+                <div id="cv-left" class="col s12 m3">
+                    <!-- icon ookamylogo -->
+                    <div id="cv-logo" class="col valign-wrapper">
+                        <img class="responsive-img" src="{{ url_for('static', filename='img/OokaLogo.svg') }}" alt="Le Logo d'Ookamy" >
+                    </div>
+                </div>
+        
+                <!-- PARTIE DROITE -->
+                <div id="cv-right" class="col s12 m9">
+                    <!-- 3 lignes 2 colonnes -->
+                    <div id="first-lign" class="row">
+        
+                        <div id="identity" class="col s12 m6 ">
+                            <!-- identity -->
+                            <ul>
+                                <li><h6 class="cv-title">Emmanuelle Gougelet</h6> <span class="span-marg-20"></span></li>
+                                <li>Développeuse </li>
+                                <li>France, Loire(42)</li>
+                                <li></li>
+                            </ul>
+        
+                        </div>
+        
+                        <div id="techno" class="col s12 m6">
+                            <!-- techno -->
+                            <div class="col s12"><h6 id="identity" class="cv-title">Technos</h6></div>
+                            <div class="col s3"><i class="fab fa-python"></i></div>
+                            <div class="col s3"><i class="fab fa-php"></i></div>
+                            <div class="col s3"><i class="fab fa-java"></i></div>
+                            <div class="col s3"><i class="fab fa-js"></i></div>
+                            <div class="col s3"><i class="fab fa-linux"></i></div>
+                            <div class="col s3"><i class="fab fa-windows"></i></div>
+                            <div class="col s3"><i class="fas fa-terminal"></i></div>
+                            <div class="col s3"><i class="fas fa-code-branch"></i></div>
+                            <div class="col s3"><i class="fas fa-database"></i></div>
+                            <div class="col s3"><i class="fab fa-symfony"></i></div>
+                            <div class="col s3"><i class="fab fa-laravel"></i></div>
+                            <!-- <div class="col s3"></div> -->
+                            <!-- <div class="col s3"></div> -->
+                            
+                        </div>
+                    </div>
+                    <div id="second-lign" class="row">
+                        <div id="bio" class="col s12 m6">
+                            <!-- bio -->
+                            <h6 class="cv-title">Bio</h6>
+                            <p>
+                                Je suis curieuse, autonome et a soif de savoir. <br>
+                                J'ai obtenue mon diplôme de developpeuse web en juin 2020 en étudiant principalement php et java. 
+                                Durant mon stage, j'ai debuté mon apprentissage de Python. Aujourd'hui, je suis : Développeuse Junior qui decouvre le monde professionnel avec un language étudié seule.
+                            </p>
+                        </div>
+                        <div id="like" class="col s12 m6">
+                            <!-- i like -->
+                            <h6 class="cv-title">I like</h6>
+                            <p>
+                                J'aime tester, explorer et découvrir. Azerty ou qwerty, windows, manjaro ou ubuntu, j'essaye, je m'adapte et je m'éclate.
+                                <!-- j'aime Mass Effect et j'ai hate de retrouver l'engoument que j'avais pour ce jeux dans un autre -->
+                            </p>
+                        </div>
+                    </div>
+                    <div id="third-lign" class="row">
+                        <div id="pro-needs" class="col s12 m6">
+                            <!-- mesbesoinsetenvie pro -->
+                            <h6 class="cv-title">Mes besoins et envie professionnels</h6>
+                            <p>
+                                Un environement de travail agrèable, un réel esprit d'équipe et une cohesion social.
+                                On est des geeks mais la communication doit être importante, surtout il ne faut pas juger et etre dans l'apprentissage.
+                                Il peut parfois être difficile de repondre, mais il est encore plus compliquer de faire le premier pas vers l'autre en exposant ses faiblesses.
+                            </p>
+                        </div>
+                        <div id="pro-frustration" class="col s12 m6">
+                            <!-- frustration -->
+                            <h6 class="cv-title">Mes craintes</h6>
+                            <p>
+                                Ma plus grande frustration professionnel est de me retrouver devant un projet qui est developper depuis plusieurs année et d'etre perdu.
+                                Cela resume bien le sentiment d'imposture qui s'impose a moi.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                
+        
+            </div>
+        </div>
+
+        
         <footer>
             <a href="{{ url_for('auth_bp.login') }}" class="" title="&#x1F91F Into the Unknow ! &#x1F609">
                 <i class="fab fa-linux"></i>
