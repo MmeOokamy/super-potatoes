@@ -228,6 +228,11 @@ header, main {
   /* background-color: var(--bglighttrans50); */
 }
 
+#four {
+  min-height: 50vh;
+  padding: 20px;
+}
+
 /* FIRST PART */
 .index-text {
   min-height: 250px;
@@ -427,8 +432,11 @@ p {
 #pro-needs{}
 #pro-frustation{}
 
-
-
+/* Quatrieme partie */
+#door-img{
+  height: 150px;
+  width: 150px;
+}
 /********************
 * END OF PAGE INDEX
 ********************/
@@ -455,6 +463,20 @@ header#top-bar h5 {
 #ooka-login label {
   color: var(--textMenu);
 }
+
+/********************
+*   NEWS
+********************/
+#table-news {
+  margin: auto;
+  max-width: 900px;
+}
+
+#table-news h2 {
+  font-size: large;
+  font-weight: bolder;
+}
+
 
 /********************
 *   OOKARCHYVES
@@ -544,3 +566,4 @@ header#top-bar h5 {
 #ookamanager-dashboard .step-body{
   margin: 5px;
 }
+

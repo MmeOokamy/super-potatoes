@@ -16,26 +16,51 @@
 {% endblock %}
 
 {% block body %}
-
-<table id="params-table" class="table">
-   <thead>
-     <tr>
-       <th>N°</th>
-       <th>News</th>
-       <th>Module</th>
-       <th>Date</th>
-     </tr>
-   </thead>
-   <tbody>
-       <tr>
-         <th>01</th>
-         <td>Mise en ligne du site et début du developpement des modules ookarchyves et ookamanager</td>
-         <td>ookamanager, ookarchyves, super potatoes</td>
-         <td>21/11/2021</td>
-       </tr>
-   </tbody>
- </table>
-
-{% endblock %}
-
+<div id="table-news">
+  <h2>Amélioration, évolution, dév Futur</h2>
+  <table id="" class="table left-align">
+    <thead>
+      <tr>
+        <th> =) </th>
+        <th>Description</th>
+        <th>Module</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th>:/</th>
+        <th>Utilisation des datatables pour les tableaux</th>
+        <th>javascript</th>
+      </tr>
+        <tr>
+          <th>:)</th>
+          <td>Possibilité de faire une mise en page personnalisée</td>
+          <td>App - Textarea</td>
+        </tr>
+        <tr>
+          <td>:o</td>
+          <td>Il faut vraiment que je travaille sur le front des différents modules.</td>
+          <td>Design</td>
+        </tr>
+        <tr>
+          <td><:o)</td>
+          <td>Gestion d'affichage privé/publique des articles et thématique des archives (pas encore mis en place)</td>
+          <td>Archives</td>
+        </tr>
+        <tr>
+          <td>/!\</td>
+          <td>Module complet qui reprend le fonctionnement d'un Kanban, Gestion de projet - création de projet, de tache avec un système de hiérarchisation</td>
+          <td>Kanban - Gestion de projet</td>
+        </tr>
+        <tr>
+          <td>:|</td>
+          <td>Faire le MCD et réécrire le sql au format MySQL et postgreSQL</td>
+          <td>SQL</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  
+  {% endblock %}
+  
 {% block js %}{% endblock %}

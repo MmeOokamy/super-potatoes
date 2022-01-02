@@ -46,6 +46,7 @@
          </fieldset>
 
          <fieldset class="password input-field">
+
             <span class="icon prefix" style=""><i class="fas fa-lock"></i></span>
             <label class="label">{{ form.user_password.label }}</label>
             {{ form.user_password }}
@@ -67,6 +68,13 @@
          <div>
             <i class="far fa-laugh-wink"></i>
          </div>
+         <div>
+           <blockquote>Pour tester super-potatoes <br>
+            ident : nomail@dot.com  -  mdp : visitor <br>
+            module accessible : archives lecture, creation, modification et suppression d'articles
+         </blockquote>
+         </div>
+         
          <div class="submit-button" style="margin-top:10px;margin-bottom:10px;">
             {{ form.submit(class="btn waves-effect waves-light success") }}
          </div>
