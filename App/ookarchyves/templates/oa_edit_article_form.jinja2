@@ -9,66 +9,66 @@
 
 {% for message in get_flashed_messages() %}
 <div class="alert alert-warning">
-    {{ message }}
+   {{ message }}
 </div>
 {% endfor %}
 
-<div class="row" >
-<form method="POST" action="">
-    {{ form.csrf_token }}   
-    {{ form.article_author_id}}    
+<div class="row">
+   <form method="POST" action="">
+      {{ form.csrf_token }}
+      {{ form.article_author_id}}
 
-    <div class="col s12 m6">
-        
-        {# Titre de l'article #}
-        <fieldset class="name">
+      <div class="col s12 m6">
+
+         {# Titre de l'article #}
+         <fieldset class="name">
             {{ form.article_title.label }}
             {{ form.article_title(placeholder='Sql, Développement, VScode') }}
             {% if form.article_title.errors %}
             <ul class="errors">
-            {% for error in form.article_title.errors %}
-            <li>{{ error }}</li>{% endfor %}
+               {% for error in form.article_title.errors %}
+               <li>{{ error }}</li>{% endfor %}
             </ul>
             {% endif %}
-        </fieldset>
-        <div class="row">
+         </fieldset>
+         <div class="row">
             <div class="col s6">
-                <fieldset class="row theme">
-                    <div class="col">{{ form.article_theme_id.label }}</div>
-                    <div class="col">{{ form.article_theme_id }}</div>              
-                </fieldset>
+               <fieldset class="row theme">
+                  <div class="col">{{ form.article_theme_id.label }}</div>
+                  <div class="col">{{ form.article_theme_id }}</div>
+               </fieldset>
             </div>
-            
-            <div class="col s6">
-                <div class="row">
-                    <div class="col">{{form.article_private.label}} :</div>
-                    {% for s in form.article_private %}
-                    <div class="col">
-                        <p>
-                            {{ s(class="with-gap") }}
-                            <span>{{ s.label }}</span>
-                        </p>
-                    </div>
-                        {% endfor %}
-                    </div>
-            </div>
-        </div>
 
-        {# Bouton pour tout valider #}
-        <div class="submit-button" style="margin-top:10px;">
+            <div class="col s6">
+               <div class="row">
+                  <div class="col">{{form.article_private.label}} :</div>
+                  {% for s in form.article_private %}
+                  <div class="col">
+                     <p>
+                        {{ s(class="with-gap") }}
+                        <span>{{ s.label }}</span>
+                     </p>
+                  </div>
+                  {% endfor %}
+               </div>
+            </div>
+         </div>
+
+         {# Bouton pour tout valider #}
+         <div class="submit-button" style="margin-top:10px;">
             {{ form.submit(class="button is-success") }}
-        </div>
-    </div>
+         </div>
+      </div>
 
-    {# Partie de droite pour le body de l'article #}
-    <div class="col s12 m6">
-        <fieldset class="description">
+      {# Partie de droite pour le body de l'article #}
+      <div class="col s12 m6">
+         <fieldset class="description">
             {{ form.article_body.label }}
             {{ form.article_body(class="textarea ", rows="20" ) }}
-        </fieldset>
-    </div>
-</form>
-</div>   
+         </fieldset>
+      </div>
+   </form>
+</div>
 
 {% endblock %}
 {% block js %}

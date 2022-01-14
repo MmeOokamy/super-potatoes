@@ -46,12 +46,12 @@ def login():
     """
     # Bypass if user is logged in
     if current_user.is_authenticated:
-        return redirect(url_for('news'))  
+        return redirect(url_for('news'))
 
     form = LoginForm()
     # Validate login attempt
     if form.validate_on_submit():
-        user = User.query.filter_by(user_email=form.user_email.data).first()  
+        user = User.query.filter_by(user_email=form.user_email.data).first()
         if user and user.check_password(password=form.user_password.data):
             login_user(user)
             next_page = request.args.get('next')

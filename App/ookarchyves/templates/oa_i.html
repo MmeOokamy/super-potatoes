@@ -3,63 +3,63 @@
 {% block title %}Main,Ookaarchyves{% endblock %}
 {% block topbar %}
 <header id="top-bar" class="row">
-	<div class="col s4">
-		<input class="" type="text" placeholder="Futur cadre de recherche">
-	</div>
+   <div class="col s4">
+      <input class="" type="text" placeholder="Futur cadre de recherche">
+   </div>
 
 
-	<div class="fixed-action-btn">
-		<a class="btn-floating btn">
-			<i id="ooka-color" class="fas fa-plus"></i>
-		</a>
-		<ul>
-			<li><a class="btn-floating red" title="Ajouter une category" href="{{url_for('ookarchyves.oa_theme')}}">
-					<i class="fas fa-folder-plus"></i>
-				</a></li>
-			<li><a class="btn-floating yellow darken-1" title="Ecrire un article"
-					href="{{url_for('ookarchyves.oa_article')}}">
-					<i class="fas fa-file-alt"></i>
-				</a></li>
-		</ul>
-	</div>
+   <div class="fixed-action-btn">
+      <a class="btn-floating btn">
+         <i id="ooka-color" class="fas fa-plus"></i>
+      </a>
+      <ul>
+         <li><a class="btn-floating red" title="Ajouter une category" href="{{url_for('ookarchyves.oa_theme')}}">
+               <i class="fas fa-folder-plus"></i>
+            </a></li>
+         <li><a class="btn-floating yellow darken-1" title="Ecrire un article"
+               href="{{url_for('ookarchyves.oa_article')}}">
+               <i class="fas fa-file-alt"></i>
+            </a></li>
+      </ul>
+   </div>
 </header>
 {% endblock %}
 
 
 {% block body %}
 <div id="ookarchyves-body" class="row">
-	{% for theme in themes %}
-	<div class="card col s12">
-		<h5>{{theme.nom}}</h5>
+   {% for theme in themes %}
+   <div class="card col s12">
+      <h5>{{theme.nom}}</h5>
 
-		<p> {{theme.description}}</p>
-		<div class="card-content">
-			{% for art in theme.articles %}
-			<button class="oa_article modal-trigger waves-effect waves-light" data-target="article"
-				data-article="{{art.id}}" data-url="{{url_for('ookarchyves.oa_article_by_id')}}">
-				{{art.article_title}}
-			</button>
-			{% endfor %}
-		</div>
-	</div>
-	{% endfor %}
+      <p> {{theme.description}}</p>
+      <div class="card-content">
+         {% for art in theme.articles %}
+         <button class="oa_article modal-trigger waves-effect waves-light" data-target="article"
+            data-article="{{art.id}}" data-url="{{url_for('ookarchyves.oa_article_by_id')}}">
+            {{art.article_title}}
+         </button>
+         {% endfor %}
+      </div>
+   </div>
+   {% endfor %}
 </div>
 
 
 <!-- Modal Structure -->
 <div id="article" class="modal modal-fixed-footer">
-	<div class="modal-content">
-		<h4 id="article-title">article.title</h4>
-		<p id="article-body">article.body</p>
-	</div>
-	<div class="modal-footer">
-		<a id="article-edit" class="btn-small green waves-effect waves-light"
-			href=""><i class="material-icons">mode_edit</i>
-		</a>
-		<button id="article-trash" class="btn-small red waves-effect waves-light"
-			data-url="{{url_for('ookarchyves.oa_d')}}"><i class="material-icons">delete_forever</i>
-		</button>
-	</div>
+   <div class="modal-content">
+      <h4 id="article-title">article.title</h4>
+      <p id="article-body">article.body</p>
+   </div>
+   <div class="modal-footer">
+      <a id="article-edit" class="btn-small green waves-effect waves-light" href=""><i
+            class="material-icons">mode_edit</i>
+      </a>
+      <button id="article-trash" class="btn-small red waves-effect waves-light"
+         data-url="{{url_for('ookarchyves.oa_d')}}"><i class="material-icons">delete_forever</i>
+      </button>
+   </div>
 </div>
 
 {% endblock %}
