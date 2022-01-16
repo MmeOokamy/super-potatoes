@@ -1,6 +1,6 @@
 FLASK_APP=App
-FLASK_ENV=development
-FLASK_SK=pleindecaracterepourfeireunecle
+FLASK_ENV=developmentOUprod
+FLASK_SK=pleindecaracterepourfaireunecle
 DEBUG=True
 
 SQLALCHEMY_DATABASE_URI='postgresql://username:password@localhost/dbname'
