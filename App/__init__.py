@@ -8,7 +8,6 @@ db = SQLAlchemy()
 login_manager = LoginManager()
 
 
-
 def create_app(test_config=None):
     # create and configure the app
     app = Flask(__name__, instance_relative_config=False)
@@ -24,7 +23,7 @@ def create_app(test_config=None):
     with app.app_context():
         # Import all modules her
         from . import routes
-    
+
         from .authentication import auth
         app.register_blueprint(auth.auth_bp)
 
@@ -38,6 +37,6 @@ def create_app(test_config=None):
         app.register_blueprint(params.p_bp)
 
         # Create Database Models
-        db.create_all()
+        # db.create_all()
 
     return app
