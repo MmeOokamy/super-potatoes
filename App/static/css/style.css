@@ -14,46 +14,49 @@ Theme Name: Font Mass Effect
 
 /* COLOR */
 :root {
-  --darkred:#800000;
-  --darkredrgb:rgb(128, 0, 0);
-  --lightred:#d40000;
-  --lightredtrans80:rgba(212, 0, 0, 0.8);
-  --bluegreen:#008b8b;
-  --textcolorfirst:#f0ffff;
-  --textcolor:#000000;
-  --bglight:#ffffff;
-  --bglighttrans80:rgba(255, 255, 255,0.8);
-  --bglighttrans50:rgba(255, 255, 255,0.5);
-  --trans:rgba(255, 255, 255,0);
-  --bgMenu:#333031;
-  --textMenu:#ffcb5a;
-  --textMenu80:#ffcb5a98;
-  --bluelightvintage: #177C8B;
-  --bluedarkvintage: #084A62;
-  --orangered:#DC3C35;
-  --bgbody:#DC3C35;
+   --darkred:#800000;
+   --darkredrgb:rgb(128, 0, 0);
+   --lightred:#d40000;
+   --lightredtrans80:rgba(212, 0, 0, 0.8);
+   --bluegreen:#008b8b;
+   --textcolorfirst:#f0ffff;
+   --textcolor:#000000;
+   --bglight:#ffffff;
+   --bglighttrans80:rgba(255, 255, 255,0.8);
+   --bglighttrans50:rgba(255, 255, 255,0.5);
+   --trans:rgba(255, 255, 255,0);
+   --bgMenu:#333031;
+   --textMenu:#ffcb5a;
+   --textMenu80:#ffcb5a98;
+   --bluelightvintage: #177C8B;
+   --bluedarkvintage: #084A62;
+   --orangered:#DC3C35;
+   --bgbody:#DC3C35;
+   /* index third part */
+   --title:#008b8b;
+   --text:rgb(43, 41, 41);
 }
 
 body {
-  font-family: "Roboto", sans-serif;
-  width: 100%;
-  height: auto;
-  text-align: center;
-  margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-  vertical-align: middle;
-  justify-content: center;
-  color: var(--textcolor);
-  font: 1rem;
+   font-family: "Roboto", sans-serif;
+   width: 100%;
+   height: auto;
+   text-align: center;
+   margin: 0 auto;
+   display: flex;
+   flex-direction: column;
+   vertical-align: middle;
+   justify-content: center;
+   color: var(--textcolor);
+   font: 1rem;
 }
 
 /* Affichage de Liara en bg si on est sur la page index| accueil */
-#index-page{
-  background-image: url("../img/background_liara_code.png");
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-position: top;
+#index-page {
+   background-image: url("../img/background_liara_code.png");
+   background-repeat: no-repeat;
+   background-attachment: fixed;
+   background-position: top;
 }
 
 .massEffect {
@@ -65,7 +68,7 @@ body {
 
 
 header, main {
-   padding-left: 250px;
+   padding-left: 200px;
  }
 
  @media only screen and (max-width : 992px) {
@@ -111,7 +114,7 @@ header, main {
 
 #sidenav {
   background-color: var(--bgMenu);
-  max-width: 250px;
+  max-width: 200px;
   /* position: sticky;
   display: inline-block;
   vertical-align: top;
@@ -213,14 +216,21 @@ header, main {
 }
 
 #second {
-  min-height: 300px;
-  background-color: var(--bglight);
+  margin-top: 20px;
+  min-height: 100vh;
+  /* background-color: var(--bglight); */
 }
 
 #third {
-  min-height: 200px;
+  min-height: 100vh;
+  padding: 20px;
   color: var(--textcolor);
-  background-color: var(--bglighttrans50);
+  /* background-color: var(--bglighttrans50); */
+}
+
+#four {
+  min-height: 50vh;
+  padding: 20px;
 }
 
 /* FIRST PART */
@@ -342,6 +352,91 @@ header, main {
 .card-content p {
   color: var(--textcolor);
 }
+/* New second part for personnal cv */
+#cv-body{
+  /* width: 80%; */
+  /* min-width: 800px; */
+  margin: auto;
+  padding: 5px;
+  background-color: rgba(255, 255, 255, 0.514);
+  border-radius: 20px;
+}
+
+
+#cv-left{
+  /* background-color: rgba(255, 0, 0, 0.925); */
+  margin: auto;
+}
+
+#cv-logo {
+}
+
+/* RIGHT PART */
+#cv-right {
+  margin: auto;
+  padding: 10px;
+  min-height: 100%;
+  color: var(--text);
+}
+
+/* common class */
+
+.cv-title {
+  font-family: "mass_effect_123regular";
+  font-family: "mass_effect_123regular";
+  color: var(--title);
+  border-bottom: var(--title) solid 1px;
+  text-align: left;
+}
+
+span .span-marg-20{
+  min-width: 20px;
+}
+
+p {
+  text-align: justify;
+  
+}
+
+
+/* First lign */
+#first-lign {
+  /* text-align: left; */
+}
+
+/* Identity Column */
+#identity {
+  text-align: left;
+}
+
+#techno  i {
+  text-align: center;
+  font-size: 1.5em;
+}
+
+/* second lign */
+#second-lign {
+
+}
+
+#bio{
+
+}
+
+#like{
+
+}
+
+/* third lign */
+#third-lign {}
+#pro-needs{}
+#pro-frustation{}
+
+/* Quatrieme partie */
+#door-img{
+  height: 150px;
+  width: 150px;
+}
 /********************
 * END OF PAGE INDEX
 ********************/
@@ -351,6 +446,9 @@ header, main {
 ********************/
 header#top-bar {
   background-color: var(--bgMenu);
+}
+header#top-bar h5 {
+ color: var(--textMenu);
 }
 
 /********************
@@ -365,6 +463,20 @@ header#top-bar {
 #ooka-login label {
   color: var(--textMenu);
 }
+
+/********************
+*   NEWS
+********************/
+#table-news {
+  margin: auto;
+  max-width: 900px;
+}
+
+#table-news h2 {
+  font-size: large;
+  font-weight: bolder;
+}
+
 
 /********************
 *   OOKARCHYVES
@@ -412,7 +524,7 @@ header#top-bar {
 /********************
 *   OOKAMANAGER
 ********************/
-/* card theme */
+/* card theme om_i*/
 #ookamanager-body {
   margin-right: 10px;
 }
@@ -446,3 +558,12 @@ header#top-bar {
   border: var(--bgMenu) 1px solid;
   border-radius: 20px;
 }
+
+#ookamanager-dashboard .step-colonne {
+  padding: 2px;
+
+}
+#ookamanager-dashboard .step-body{
+  margin: 5px;
+}
+

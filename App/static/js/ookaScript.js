@@ -139,6 +139,7 @@ $(document).ready(function(){
       $('.modal').modal();
 
       $('.sidenav').sidenav();
+      
       $('.tooltipped').tooltip();
 
    // Cr�ation d'un tableau avec toutes les ventilations

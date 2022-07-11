@@ -1,0 +1,66 @@
+{% extends 'base.html' %}
+{% block title %}Nouveaute{% endblock %}
+{% block stylesheet %}
+  <style>
+    main {
+      padding-right: 20px;
+    }
+  </style>
+{% endblock %}
+
+{% block topbar %}
+<header id="top-bar">
+
+</header>
+
+{% endblock %}
+
+{% block body %}
+<div id="table-news">
+  <h2>Amélioration, évolution, dév Futur</h2>
+  <table id="" class="table left-align">
+    <thead>
+      <tr>
+        <th> =) </th>
+        <th>Description</th>
+        <th>Module</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th>:/</th>
+        <th>Utilisation des datatables pour les tableaux</th>
+        <th>javascript</th>
+      </tr>
+        <tr>
+          <th>:)</th>
+          <td>Possibilité de faire une mise en page personnalisée</td>
+          <td>App - Textarea</td>
+        </tr>
+        <tr>
+          <td>:o</td>
+          <td>Il faut vraiment que je travaille sur le front des différents modules.</td>
+          <td>Design</td>
+        </tr>
+        <tr>
+          <td><:o)</td>
+          <td>Gestion d'affichage privé/publique des articles et thématique des archives (pas encore mis en place)</td>
+          <td>Archives</td>
+        </tr>
+        <tr>
+          <td>/!\</td>
+          <td>Module complet qui reprend le fonctionnement d'un Kanban, Gestion de projet - création de projet, de tache avec un système de hiérarchisation</td>
+          <td>Kanban - Gestion de projet</td>
+        </tr>
+        <tr>
+          <td>:|</td>
+          <td>Faire le MCD et réécrire le sql au format MySQL et postgreSQL</td>
+          <td>SQL</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  
+  {% endblock %}
+  
+{% block js %}{% endblock %}

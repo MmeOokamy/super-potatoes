@@ -1,4 +1,7 @@
 $(document).ready(function(){
+
+        $('select').formSelect();
+    
         $(".oa_article").on("click", function(){
             let id = $(this).data('article');
             let url = $(this).data('url');
@@ -13,6 +16,8 @@ $(document).ready(function(){
                         $("#article-title").html(a.title)
                         $("#article-body").html(a.body)
                         $("#article-trash").attr('data-article-id', a.id)
+                        $("#article-edit").attr('data-article-id', a.id)
+                        $("#article-edit").attr('href', '/ookarchyves/edit/' + a.id)
                         
                     }
 

@@ -1,15 +1,15 @@
 {% extends 'base.html' %}
 
-{% block title %}Main Ookamanager{% endblock %}
+{% block title %}{{dashboard.project_name}}{% endblock %}
 {% block topbar %}
 <header id="top-bar">
-   <h6>{{dashboard}}</h6>
+   <h5>{{dashboard.project_name}}</h5>
    <div class="fixed-action-btn">
       <a class="btn-floating btn">
         <i id="ooka-color" class="fas fa-plus"></i>
       </a>
       <ul>
-        <li><a class="btn-floating red" title="Ajouter une taches" href="{{url_for('ookamanager.om_task')}}">
+        <li><a class="btn-floating red" title="Ajouter une taches" href="{{ url_for('ookamanager.om_add_todo',dashboard_id=dashboard.id)}}">
          <i class="fas fa-thumbtack"></i>
         </a></li>
 
@@ -18,5 +18,33 @@
 </header>
 {% endblock %}
 {% block body %}
-   
+<!-- Afficher le tableau des projets /!\ projet creer par le compte-->
+<div id="ookamanager-dashboard" class="row">
+  <div class="card-panel ">
+      {{dashboard.project_description}}
+    <div class="row" style="margin-bottom: 0; padding-bottom: 0;">
+      <blockquote class="col s12 m4">{{dashboard.project_create_at}}</blockquote>
+      <blockquote class="col s12 m4">{{dashboard.project_estimation}}</blockquote>
+      <blockquote class="col s12 m4">{{dashboard.project_deadline}}</blockquote>
+    </div>
+  </div>
+
+  {% for s in steps |sort(attribute="step_order") %}
+    <div class="step-colonne col s12 m4 ">
+      <div class="step-head {{s.step_color}}">
+
+        {{s.step_name|upper}}
+      </div>
+      <div class="step-body">
+        <div class="card-panel ">1</div>
+        <div class="card-panel ">2</div>
+        <div class="card-panel ">3</div>
+        <div class="card-panel ">4</div>
+        <div class="card-panel ">5</div>
+        <div class="card-panel ">6</div>
+      </div>
+      
+    </div>
+  {% endfor %}   
+
 {% endblock %}

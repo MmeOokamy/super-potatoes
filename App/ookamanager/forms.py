@@ -34,7 +34,7 @@ class ModuleForm(FlaskForm):
 
 class TaskForm(FlaskForm):
     task_title = StringField(
-        'Nom du Module',
+        'Titre de l\'action',
         [DataRequired()]
     )
     task_body = TextAreaField(

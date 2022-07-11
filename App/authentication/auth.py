@@ -29,7 +29,7 @@ def signup():
             db.session.add(user)
             db.session.commit()  # Create new user
             login_user(user)  # Log in as newly created user
-            return redirect(url_for('module/modules.html'))
+            return redirect(url_for('news.html'))
         flash('A user already exists with that email address.')
     return render_template(
         'signup.jinja2',
@@ -46,16 +46,16 @@ def login():
     """
     # Bypass if user is logged in
     if current_user.is_authenticated:
-        return redirect(url_for('module'))  
+        return redirect(url_for('news'))
 
     form = LoginForm()
     # Validate login attempt
     if form.validate_on_submit():
-        user = User.query.filter_by(user_email=form.user_email.data).first()  
+        user = User.query.filter_by(user_email=form.user_email.data).first()
         if user and user.check_password(password=form.user_password.data):
             login_user(user)
             next_page = request.args.get('next')
-            return redirect(next_page or url_for('module'))
+            return redirect(next_page or url_for('news'))
         flash('Email ou Mot de passe invalide')
         return redirect(url_for('auth_bp.login'))
     return render_template(

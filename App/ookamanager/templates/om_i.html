@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 
-{% block title %}Main Ookamanager{% endblock %}
+{% block title %}Projet de {{current_user}}{% endblock %}
 {% block topbar %}
 <header id="top-bar">
   <div class="fixed-action-btn">
@@ -19,8 +19,7 @@
 </header>
 {% endblock %}
 {% block body %}
-
-<!-- Afficher le tableau des projets -->
+<!-- Afficher le tableau des projets /!\ projet creer par le compte-->
 <div id="ookamanager-body" class="row">
   {% for p in projects %}
       <div class="card col s12" >    

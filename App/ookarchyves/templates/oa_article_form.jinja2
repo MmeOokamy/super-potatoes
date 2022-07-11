@@ -38,18 +38,24 @@
         </fieldset>
         <div class="row">
             <div class="col s6">
-                {# selection du theme #}
-                <fieldset class="theme select">
-                    {{ form.article_theme_id.label }}
-                    {{ form.article_theme_id }}
+                <fieldset class="row theme">
+                    <div class="col">{{ form.article_theme_id.label }}</div>
+                    <div class="col">{{ form.article_theme_id }}</div>              
                 </fieldset>
             </div>
+            
             <div class="col s6">
-                {# public ou privée #}
-                <fieldset class="private">
-                    {{ form.article_private.label }}
-                    {{ form.article_private(class="") }}
-                </fieldset>
+                <div class="row">
+                    <div class="col">{{form.article_private.label}} :</div>
+                    {% for s in form.article_private %}
+                    <div class="col">
+                        <p>
+                            {{ s(class="with-gap") }}
+                            <span>{{ s.label }}</span>
+                        </p>
+                    </div>
+                        {% endfor %}
+                    </div>
             </div>
         </div>
 
@@ -70,4 +76,6 @@
 </div>   
 
 {% endblock %}
-{% block js %}{% endblock %}
+{% block js %}
+<script src="{{url_for('ookarchyves.static', filename='oa.js')}}"></script>
+{% endblock %}

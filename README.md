@@ -1,45 +1,109 @@
-*Mes projets ne sont pas souvent détaillés dans la partie readme. Je suis une adepte du cahier ! J'ai toujours un cahier pour noter mes idées et ma conception. Que cela soit professionnel ou personnel. C'est un peu ma méthode de suivi.*
-
-
 # Super-Potatoes:
+
+   Application qui a pour but de monter en compétences sur Python, Flask et JavaScript.
+
 *****************************************************
 Good News! le site est en prod xD  => ***https://mme.ookamy.fr/*** 
- * Il a fallut que je modiffi la base de donnée qui etait pour postgreSQL en MySQL friendly xD 
+ * Il a fallu que je modifie la base de données. De postgreSQL vers MySQL friendly xD 
 *****************************************************
+## Languages
+   * Python 3.8
+   * Flask 2 & Jinja2
+   * SQL : Postgres [dev] et Mysql [prod]
+   * Javascript , Jquery (peut-être rajouter une lib JS)
 
-Changement de direction avec **Super-Potatoes**, le but c'est de mettre en ligne un site avec ma doc et un tableau de bord de gestion de projet. 
-Un Kanban, un **tableau de bord** qui me permettra de suivre mes futurs projets et de pouvoir y accéder partout.
+## Modules
+*La construction sera par module. Il sera important d'avoir chaque module indépendant des uns des autres afin de pouvoir ajouter/modifier / supprimer facilement des modules sans interférer avec le core de l'application.*
+Pour le moment l'application a comme core ou module principale/moteur legend schema (Core)
+ > pour lier les modules il faudra rajouter dans le fichier App/__init__.py
+ > et aussi rajouter dans le fichier routes.py a la racine du dossier du module
+ ```
+# __init__.py
+ with app.app_context():
+        from . import routes
 
-**Super-Potatoes** sera personnalisable avec l'utilisation de paramétrage custom.
+        from .ookamanager import routes
+        app.register_blueprint(routes.om_bp)
 
-La base de données n'est pas encore finie, le Modèle Conceptuel de Donnée change souvent en ce moment. Merci, les stylos effaçables.
+# routes.py
+om_bp = Blueprint('ookamanager', __name__,
+    url_prefix='/ookamanager',
+    template_folder='templates'
+)
 
-Le MCD a completement changer de tête -> **schema.sql**
 
-Évidemment, j'essayais de faire du python POO, mais sans utiliser les bons outils, j'ai oublié SQLAlchemy pour faire les modèles ... Du coup, le mystère du' pourquoi ça ne veut pas' est résolu.
+@om_bp.route('/')
 
-D'ailleurs la manipulation des tasks dans les colonne pourront etre geré avec le **drag'n drop**
+ ```
+## Application Schema 
+   *les fichiers qui ne sont pas dans cette arborescence ne sont pas "utiliser"*
+   
+```
+ . Super-Potatoes
+ ├── wsgi.py (Core)
+ ├── config.py (Core)
+ ├── requirements.txt (Core)
+ ├── .env (Core)
+ ├── [.menv] (Core)
+ └── [App]
+        ├── __init__.py (Core)
+        ├── ooka_tools.py (Core)
+        ├── routes.py (Core) 
+        ├── [authentication] (Core)
+        |      ├── auth.py
+        |      ├── forms.py
+        |      └── models.py
+        |
+        ├── [ookamanager]
+        |      ├── forms.py
+        |      ├── models.py
+        |      ├── routes.py
+        |      └── [templates]
+        |              ├── om_dashboard.html
+        |              ├── om_i.html
+        |              ├── om_module_form.jinja2
+        |              ├── om_project_form.jinja2
+        |              └── om_task_form.jinja2
+        |
+        ├── [ookarchyves]
+        |      ├── forms.py
+        |      ├── models.py
+        |      ├── routes.py
+        |      ├── [static]
+        |      |       └── oa.js
+        |      └── [templates]
+        |              ├── oa_i.html
+        |              ├── oa_article_form.jinja2
+        |              └── om_theme_form.jinja2
+        |
+        ├── [settings] (Core)
+        |      ├── models.py
+        |      ├── params.py
+        |      └── params.sql
+        |      
+        |
+        ├── [sql] (Core)
+        |      ├── insert.sql
+        |      └── schema.sql
+        |
+        ├── [static] (Core)
+        |      ├── [css]
+        |      ├── [fonts]
+        |      ├── [img]
+        |      └── [js]
+        |      
+        └── [templates] (Core)
+               ├── base.html
+               ├── index.html
+               ├── modules.html
+               ├── navigation.html
+               ├── [auth]
+               |       └── login.jinja2
+               ├── [error]
+               |       ├── 404.html
+               |       └── 500.html
+               └── [setting]
+                       └── login.jinja2
 
-Ah et j'aime bien ce petit guide *https://hackersandslackers.com/your-first-flask-application* c'est sur onze chapitres.
-
-## La Conception Générale
-
- * Flask, jinja, postgresql, token, javascript/jquery(ou autre)
- * Framework CSS => on va tester Semantic UI (NO WAY) => On va vers **Bulma**!!
-
-# todo
- - revoir tout les chemins  static / template
- - refaire la connexion a la bdd postgresql psycopg2
- - revoir la maquette du site et les different chemins
-
-# LES MODULES
-*divers modif: debut d'ajout des blueprint avec template et static dans le meme module comme ça chaque module sera independant*
-### Module Authentification - loggin / loggout
-### Module Logs - suivre les modifs de la bdd (trigger?)
-### Module Parameters - Personnalisation de l'appli - couleurs - nom des champs-
-### Module Ookamanager - Project Management - Tableau de bord - Gestion de projet -
-### Module Ookarchyves - Mes docs - archives -
-
-### Mhé
-Le readme sera modifier au fur et a mesure. Pour les commandes, elles seront dans le fichier ***start_project.md***
+```
 

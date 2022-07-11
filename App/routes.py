@@ -1,7 +1,6 @@
-from datetime import datetime as dt
-from werkzeug.exceptions import HTTPException
 from flask import current_app as app, request, json, render_template, redirect, url_for
 from flask_login import current_user, login_required, logout_user
+from werkzeug.exceptions import HTTPException
 
 from .ooka_tools import get_year
 
@@ -12,11 +11,11 @@ def home():
     return render_template('index.html', d=get_year())
 
 
-# liste des modules
+# liste des nouveautés(faut-il faire une table pour? je pense oui.)
 @app.route("/news")
 @login_required
-def module():
-    return render_template('modules.html', menu_active='Modules')
+def news():
+    return render_template('news.html', menu_active='News')
 
 
 @app.route("/logout")

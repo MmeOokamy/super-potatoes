@@ -73,19 +73,19 @@ class Steps(db.Model):
         db.Integer,
         primary_key=True
     )
-    steps_name = db.Column(
+    step_name = db.Column(
         db.String(255),
         nullable=False,
     )
-    steps_order = db.Column(
+    step_order = db.Column(
         db.Integer,
         default = 1,
     )
-    steps_visible = db.Column(
+    step_visible = db.Column(
         db.Integer,
         default = 1,
     )
-    steps_color = db.Column(
+    step_color = db.Column(
         db.String(30),
         nullable=True,
     )
